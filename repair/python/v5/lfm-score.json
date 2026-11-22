@@ -1,0 +1,43 @@
+{
+  "task": "repair-fixture-v5:coord-hard",
+  "solution": "<REPO>\\repair\\v5\\run-lfm",
+  "visible": {
+    "returncode": 1,
+    "passed": 24,
+    "failed": 1,
+    "failed_names": [
+      "test_drain_one"
+    ]
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 46,
+    "failed": 9,
+    "failed_names": [
+      "test_h_api_astream_closes",
+      "test_h_api_astream_task_done",
+      "test_h_api_config_no_self_retention",
+      "test_h_cache_gc_drops_entry",
+      "test_h_desc_per_instance",
+      "test_h_desc_slotted",
+      "test_h_queue_drain_full",
+      "test_h_queue_task_done_over",
+      "test_h_queue_track_weak_gc"
+    ],
+    "total": 55
+  },
+  "total": {
+    "passed": 70,
+    "failed": 10,
+    "score_zero": true
+  },
+  "baseline_visible_passed": 25,
+  "regressions": [
+    "test_drain_one"
+  ],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "files_removed": [],
+  "public_api_intact": true
+}

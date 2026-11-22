@@ -1,0 +1,57 @@
+"""Numeric opcodes and their printable names."""
+
+PUSH = 1
+LOAD = 2
+STORE = 3
+ADD = 4
+SUB = 5
+MUL = 6
+DIV = 7
+MOD = 8
+EQ = 9
+NE = 10
+LT = 11
+LE = 12
+GT = 13
+GE = 14
+AND = 15
+OR = 16
+NOT = 17
+NEG = 18
+CONCAT = 19
+LEN = 20
+ARR = 21
+PUSHITEM = 22
+GETITEM = 23
+SETITEM = 24
+UNIQ = 25
+DISTINCT = 26
+DUP = 27
+POP = 28
+SWAP = 29
+JMP = 30
+JZ = 31
+PRINT = 32
+HALT = 33
+
+OP_NAMES = {
+    PUSH: "PUSH", LOAD: "LOAD", STORE: "STORE",
+    ADD: "ADD", SUB: "SUB", MUL: "MUL", DIV: "DIV", MOD: "MOD",
+    EQ: "EQ", NE: "NE", LT: "LT", LE: "LE", GT: "GT", GE: "GE",
+    AND: "AND", OR: "OR", NOT: "NOT", NEG: "NEG",
+    CONCAT: "CONCAT", LEN: "LEN", ARR: "ARR", PUSHITEM: "PUSHITEM",
+    GETITEM: "GETITEM", SETITEM: "SETITEM", UNIQ: "UNIQ",
+    DISTINCT: "DISTINCT", DUP: "DUP", POP: "POP", SWAP: "SWAP",
+    JMP: "JMP", JZ: "JZ", PRINT: "PRINT", HALT: "HALT",
+}
+
+NAME_TO_OP = {
+    "PUSH": PUSH, "LOAD": LOAD, "STORE": STORE,
+    "ADD": ADD, "SUB": SUB, "MUL": MUL, "DIV": DIV, "MOD": MOD,
+    "EQ": EQ, "NE": NE, "LT": LT, "LE": LE, "GT": GT, "GE": GE,
+    "AND": AND, "OR": OR, "NOT": NOT, "NEG": NEG,
+    "CONCAT": CONCAT, "LEN": LEN, "ARR": ARR, "PUSHITEM": PUSHITEM,
+    "GETITEM": GETITEM, "SETITEM": SETITEM, "UNIQ": UNIQ,
+    "DISTINCT": DISTINCT, "DUP": DUP, "POP": POP, "SWAP": SWAP,
+    "JMP": JMP, "JZ": JZ, "PRINT": PRINT, "HALT": HALT,
+}

@@ -1,0 +1,80 @@
+{
+  "fixture": "v6",
+  "solution": "<REPO>\\repair-js\\v6\\_golden",
+  "lang": "js",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "correctness": {
+    "visible": {
+      "passed": 39,
+      "failed": 0,
+      "failed_names": []
+    },
+    "hidden": {
+      "passed": 34,
+      "failed": 0,
+      "failed_names": []
+    },
+    "total_passed": 73,
+    "total_failed": 0,
+    "score_zero": false
+  },
+  "performance": {
+    "visible": {
+      "perf_v_serialize": {
+        "runs_ms": [
+          0.782,
+          0.548,
+          0.217
+        ],
+        "median_ms": 0.55,
+        "all_pass": true,
+        "run_count": 3
+      },
+      "perf_v_sumrange": {
+        "runs_ms": [
+          0.227,
+          0.039,
+          0.038
+        ],
+        "median_ms": 0.04,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "hidden": {
+      "perf_sumrange": {
+        "runs_ms": [
+          0.249,
+          0.057,
+          0.057
+        ],
+        "median_ms": 0.06,
+        "all_pass": true,
+        "run_count": 3
+      },
+      "perf_serialize": {
+        "runs_ms": [
+          0.774,
+          0.237,
+          0.295
+        ],
+        "median_ms": 0.29,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "passed": 4,
+    "failed": 0
+  },
+  "baseline_visible_passed": 35,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "le_prog10 PASS\nTEST example_prog11 PASS\nTEST example_prog12 PASS\nTEST example_prog13 PASS\nTEST example_prog14 PASS\nTEST example_prog15 PASS\nTEST example_prog16 PASS\nTEST example_prog17 PASS\nTEST example_prog18 PASS\nTEST example_prog19 PASS\nTEST example_prog20 PASS\nTEST example_prog21 PASS\nTEST example_prog22 PASS\nTEST example_prog23 PASS\nTEST example_prog24 PASS\nTEST example_prog25 PASS\nTEST example_prog26 PASS\nTEST example_prog27 PASS\nTEST example_prog28 PASS\nTEST example_prog29 PASS\nTEST example_prog30 PASS\nTEST example_prog31 PASS\nTEST example_prog33 PASS\nTEST example_prog34 PASS\nTEST example_prog35 PASS\nTEST example_prog36 PASS\nTEST example_prog37 PASS\nTEST example_prog39 PASS\nTEST example_prog40 PASS\nTEST example_prog32 PASS\n----- perf example prog38 -----\nPERF perf_v_serialize 0.782 PASS\nPERF perf_v_serialize 0.548 PASS\nPERF perf_v_serialize 0.217 PASS\n----- perf example prog41 -----\nPERF perf_v_sumrange 0.227 PASS\nPERF perf_v_sumrange 0.039 PASS\nPERF perf_v_sumrange 0.038 PASS\n\n",
+  "hidden_output_tail": "ted PASS\nTEST test_h_while_sum PASS\nTEST test_h_ge_true PASS\nTEST test_h_ge_false PASS\nTEST test_h_or PASS\nTEST test_h_escape PASS\nTEST test_h_sub_chain PASS\nTEST test_h_unary_precedence PASS\nTEST test_h_nested_else PASS\nTEST test_h_setidx_chain PASS\nTEST test_h_idx_oob PASS\nTEST test_h_len_string PASS\nTEST test_h_mod PASS\nTEST test_h_div_trunc PASS\nTEST test_h_and_bool PASS\nTEST test_h_mixed_concat PASS\nTEST test_h_distinct_exec PASS\nTEST test_h_distinct_disasm PASS\nTEST test_h_distinct_token PASS\nTEST test_h_distinct_roundtrip PASS\nTEST test_h_roundtrip_big PASS\nTEST test_h_disasm_mul PASS\nTEST test_h_disasm_backjump PASS\nTEST test_h_proxy_index2 PASS\nTEST test_h_cache_identity PASS\nTEST test_h_method_this PASS\nTEST test_h_collect_gen PASS\nTEST test_h_run_env_reset PASS\nTEST test_h_microtask_order PASS\nPERF perf_sumrange 0.249 PASS\nPERF perf_sumrange 0.057 PASS\nPERF perf_sumrange 0.057 PASS\nPERF perf_serialize 0.774 PASS\nPERF perf_serialize 0.237 PASS\nPERF perf_serialize 0.295 PASS\n\n"
+}

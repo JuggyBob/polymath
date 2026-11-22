@@ -1,0 +1,92 @@
+{
+  "fixture": "v6",
+  "solution": "<REPO>\\repair-rust\\v6\\run-qwen36-v6",
+  "lang": "rust",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "correctness": {
+    "visible": {
+      "passed": 12,
+      "failed": 0,
+      "failed_names": []
+    },
+    "hidden": {
+      "passed": 15,
+      "failed": 11,
+      "failed_names": [
+        "h_add_vars",
+        "h_array3",
+        "h_empty_then",
+        "h_escape_tab",
+        "h_negative_index",
+        "h_nested_index",
+        "h_nested_while",
+        "h_print_repeat",
+        "h_push_sequence",
+        "h_serial_full",
+        "h_unary_chain"
+      ]
+    },
+    "total_passed": 27,
+    "total_failed": 11,
+    "score_zero": false
+  },
+  "performance": {
+    "visible": {
+      "vis_print": {
+        "runs_ms": [
+          0.745,
+          0.566,
+          0.582
+        ],
+        "median_ms": 0.58,
+        "all_pass": true,
+        "run_count": 3
+      },
+      "vis_disasm": {
+        "runs_ms": [
+          0.388,
+          0.398,
+          0.389
+        ],
+        "median_ms": 0.39,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "hidden": {
+      "perf_print": {
+        "runs_ms": [
+          87.016,
+          79.689,
+          71.763
+        ],
+        "median_ms": 79.69,
+        "all_pass": false,
+        "run_count": 3
+      },
+      "perf_disasm": {
+        "runs_ms": [
+          54.858,
+          33.531,
+          28.767
+        ],
+        "median_ms": 33.53,
+        "all_pass": false,
+        "run_count": 3
+      }
+    },
+    "passed": 2,
+    "failed": 2
+  },
+  "baseline_visible_passed": 12,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST prog01_arith PASS\nTEST prog02_strings PASS\nTEST prog03_values PASS\nTEST prog04_variables PASS\nTEST prog05_arrays PASS\nTEST prog06_push PASS\nTEST prog07_if PASS\nTEST prog08_while PASS\nTEST prog11_nested_values PASS\nTEST prog12_arith2 PASS\nTEST prog09_disasm PASS\nTEST prog10_roundtrip_exec PASS\nPERF vis_print 0.745 PASS\nPERF vis_print 0.566 PASS\nPERF vis_print 0.582 PASS\nPERF vis_disasm 0.388 PASS\nPERF vis_disasm 0.398 PASS\nPERF vis_disasm 0.389 PASS\n\n",
+  "hidden_output_tail": "TEST h_distinct_basic PASS\nTEST h_distinct_types PASS\nTEST h_ge_lexer PASS\nTEST h_ne_lexer PASS\nTEST h_escape_nul PASS\nTEST h_escape_tab FAIL\nTEST h_cmp_chain PASS\nTEST h_unary_chain FAIL\nTEST h_nested_index FAIL\nTEST h_truthy_empty_string PASS\nTEST h_str_cmp PASS\nTEST h_add_vars FAIL\nTEST h_print_repeat FAIL\nTEST h_len_unicode PASS\nTEST h_negative_index FAIL\nTEST h_push_sequence FAIL\nTEST h_empty_then FAIL\nTEST h_nested_while FAIL\nTEST h_array3 FAIL\nTEST h_null_eq PASS\nTEST h_distinct_exec PASS\nTEST h_distinct_roundtrip PASS\nTEST h_distinct_disasm PASS\nTEST h_serial_full FAIL\nTEST h_load_uninit PASS\nTEST h_stack_ops PASS\nPERF perf_print 87.016 FAIL\nPERF perf_print 79.689 FAIL\nPERF perf_print 71.763 FAIL\nPERF perf_disasm 54.858 FAIL\nPERF perf_disasm 33.531 FAIL\nPERF perf_disasm 28.767 FAIL\n\n"
+}

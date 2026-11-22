@@ -1,0 +1,3 @@
+// @api
+console.log(vm.run('let z = 1; print z;').trim());
+console.log(vm.run('print z;').trim());

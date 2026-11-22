@@ -1,0 +1,16 @@
+# strings: length and concatenation
+str "hello"
+print
+str "hello"
+len
+print
+str "ab"
+str "cd"
+concat
+print
+str "x"
+str "y"
+concat
+len
+print
+halt

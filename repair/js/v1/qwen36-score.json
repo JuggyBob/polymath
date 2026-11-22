@@ -1,0 +1,31 @@
+{
+  "fixture": "v1",
+  "solution": "<REPO>\\repair-js\\v1\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 14,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 18,
+    "failed": 0,
+    "total": 18,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 32,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 7,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST sum_basic PASS\nTEST sum_sparse PASS\nTEST average_basic PASS\nTEST average_nan PASS\nTEST unique_order PASS\nTEST unique_dedup PASS\nTEST chunk_values PASS\nTEST chunk_nonmutating PASS\nTEST groupby_basic PASS\nTEST groupby_independent PASS\nTEST flatten_deep PASS\nTEST frequency_types PASS\nTEST clamp_bounds PASS\nTEST clamp_negative_zero PASS\n\n",
+  "hidden_output_tail": "TEST h_sum_empty PASS\nTEST h_sum_negative PASS\nTEST h_sum_sparse PASS\nTEST h_average_empty PASS\nTEST h_average_nan PASS\nTEST h_unique_dedup PASS\nTEST h_unique_order PASS\nTEST h_unique_nan PASS\nTEST h_chunk_exact PASS\nTEST h_chunk_nonmutating PASS\nTEST h_groupby_grouping PASS\nTEST h_groupby_independent PASS\nTEST h_flatten_deep PASS\nTEST h_frequency_strict PASS\nTEST h_frequency_nan PASS\nTEST h_frequency_empty PASS\nTEST h_clamp_bounds PASS\nTEST h_clamp_negzero PASS\n\n"
+}

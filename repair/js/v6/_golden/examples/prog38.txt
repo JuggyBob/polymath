@@ -1,0 +1,4 @@
+// @api-perf
+const many = [];
+for (let i = 0; i < 3000; i++) many.push({ op: vm.OP.PUSH, arg: i });
+perf('perf_v_serialize', () => vm.serialize(many), 25);

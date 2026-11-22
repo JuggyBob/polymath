@@ -1,0 +1,34 @@
+{
+  "task_dir": "<REPO>\\repair\\lfm",
+  "visible": {
+    "returncode": 0,
+    "passed": 10,
+    "failed": 0
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 5,
+    "failed": 3
+  },
+  "tests_modified": [],
+  "files_changed": [],
+  "files_added": [
+    "AGENTS.md",
+    "README.md",
+    "inventory/__init__.py",
+    "inventory/models.py",
+    "inventory/report.py",
+    "inventory/store.py",
+    "run-tests.cmd",
+    "tests/test_report.py",
+    "tests/test_search.py",
+    "tests/test_store.py"
+  ],
+  "files_removed": [],
+  "visible_failures": [],
+  "hidden_failures": [
+    "FAIL: test_unicode_casefold (test_hidden.HiddenSearch.test_unicode_casefold)",
+    "FAIL: test_large_exact_sum (test_hidden.HiddenTotals.test_large_exact_sum)",
+    "FAIL: test_quantity_matters (test_hidden.HiddenTotals.test_quantity_matters)"
+  ]
+}

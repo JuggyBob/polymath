@@ -1,0 +1,6 @@
+let greeting = "hello";
+print(greeting);
+print("a" + "b");
+print("say \"hi\"");
+print("line1\tline2");
+print(len("abcd"));

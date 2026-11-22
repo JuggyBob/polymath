@@ -1,0 +1,16 @@
+{
+  "fixture": "python-v5-attempt2-attached",
+  "start_utc": "2026-11-20T05:52:33.0673260Z",
+  "end_utc": "2026-11-20T06:11:07.7939782Z",
+  "elapsed_s": 1071.2,
+  "stop_reason": "COMPLETED",
+  "hermes_pid": 16744,
+  "exit_code": null,
+  "session": "",
+  "max_api_calls": 0,
+  "loop_key": "",
+  "loop_count": 0,
+  "tool_counts_top": "",
+  "health_last": "{\"status\": \"ok\", \"max_context\": 65536, \"model\": \"lfm2.5-24b-a2b\", \"images\": false, \"api_key\": false, \"image_generation\": false, \"api_monitor\": false, \"loaded\": true, \"service\": \"strata\"}",
+  "health_consecutive_fails": 0
+}

@@ -1,0 +1,31 @@
+{
+  "task": "repair-fixture-v3:job-scheduler",
+  "solution": "<REPO>\\repair\\v3\\run-qwen36",
+  "visible": {
+    "returncode": 0,
+    "passed": 22,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 36,
+    "failed": 1,
+    "failed_names": [
+      "test_next_job_invalidated_by_expire"
+    ],
+    "total": 37
+  },
+  "total": {
+    "passed": 58,
+    "failed": 1,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 13,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "files_removed": [],
+  "public_api_intact": true
+}

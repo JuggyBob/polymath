@@ -1,0 +1,66 @@
+{
+  "note": "BrowseComp-style current-events research questions. Ground truth verified by web search on 2026-11-17 from primary sources. Goose is given live web_search and web_fetch MCP tools; the model must research and confirm from sources.",
+  "system": "You are a research assistant with web_search and web_fetch tools. You MUST use web_search to research the question and web_fetch to open and confirm the key sources before answering. Do not answer from memory alone. Answer concisely and precisely, and name the sources you used. End with a short line: FINAL: <answer>",
+  "questions": [
+    {
+      "id": "E1", "tier": "easy", "topic": "sport",
+      "q": "Who won the 2025 FIFA Club World Cup final, what was the score, and who was the runner-up?",
+      "key": "Chelsea beat Paris Saint-Germain 3-0",
+      "sources": ["FIFA.com: Chelsea 3-0 PSG, final at MetLife Stadium, 13 Jul 2025", "AP/CNN: Palmer scored twice, Joao Pedro once"]
+    },
+    {
+      "id": "E2", "tier": "easy", "topic": "climate",
+      "q": "In which Brazilian city was the COP30 climate summit held in November 2025?",
+      "key": "Belem (Belém)",
+      "sources": ["COP30 official: conference in Belem, Brazil", "Reuters: Belem, Amazonian city"]
+    },
+    {
+      "id": "E3", "tier": "easy", "topic": "sport",
+      "q": "Which two cities co-hosted the 2026 Winter Olympics, and in what month and year did they take place?",
+      "key": "Milan (Milano) and Cortina d'Ampezzo; February 2026",
+      "sources": ["Olympics.com: Milano Cortina 2026, 6-22 Feb 2026, Italy"]
+    },
+    {
+      "id": "E4", "tier": "easy", "topic": "science",
+      "q": "Name the three scientists who shared the 2025 Nobel Prize in Physics.",
+      "key": "John Clarke, Michel H. Devoret, John M. Martinis",
+      "sources": ["NobelPrize.org press release, 7 Oct 2025"]
+    },
+    {
+      "id": "E5", "tier": "easy", "topic": "sport",
+      "q": "Which country finished top of the medal table at the 2026 Winter Olympics?",
+      "key": "Norway (18 gold, 41 total)",
+      "sources": ["Wikipedia/2026 Winter Olympics medal table: Norway top with 18 gold, 41 medals"]
+    },
+    {
+      "id": "H1", "tier": "hard", "topic": "science+tech",
+      "q": "Of the three 2025 Nobel Physics laureates, one is Chief Scientist for Quantum Hardware at a big tech company's quantum AI division, while another is Chief Technology Officer at a quantum startup. Name the tech company and the startup.",
+      "key": "Google (Google Quantum AI) and Qolab",
+      "sources": ["NobelPrize.org: Devoret = Chief Scientist for Quantum Hardware at Google Quantum AI; Martinis = CTO at Qolab, Los Angeles"]
+    },
+    {
+      "id": "H2", "tier": "hard", "topic": "sport",
+      "q": "The club that won the 2025 FIFA Club World Cup later saw its manager leave. Who scored the opening two goals in the final, and who was that manager?",
+      "key": "Cole Palmer (opening two goals); manager Enzo Maresca",
+      "sources": ["FIFA: Cole Palmer scored opening two goals in 3-0 final", "FIFA.com article: 'Chelsea confirm Maresca exit'"]
+    },
+    {
+      "id": "H3", "tier": "hard", "topic": "sport",
+      "q": "At the 2026 Winter Olympics the opening ceremony was at San Siro in Milan and the closing ceremony at the Verona Arena. Who lit the Olympic cauldron in Milan, and which sport made its Winter Olympic debut at these Games?",
+      "key": "Deborah Compagnoni and Alberto Tomba lit the Milan cauldron; ski mountaineering debuted",
+      "sources": ["Wikipedia 2026 Winter Olympics: Cauldron = Deborah Compagnoni and Alberto Tomba (Milan); debut of ski mountaineering"]
+    },
+    {
+      "id": "H4", "tier": "hard", "topic": "climate",
+      "q": "The 2025 climate summit in the Amazon agreed to triple adaptation finance by 2035 and launched a 'Belém Mission to 1.5'. Who was the president of that summit, and which earlier COP decision's 'transitioning away from fossil fuels' language did the final text reference?",
+      "key": "Summit president Andre Correa do Lago; referenced the COP28 'UAE Consensus'",
+      "sources": ["COP30 official: COP30 President Andre Correa do Lago", "UN News: final text refers only to the UAE Consensus, the COP28 decision"]
+    },
+    {
+      "id": "H5", "tier": "hard", "topic": "science",
+      "q": "The work behind the 2025 Nobel Prize in Physics used a superconducting circuit with a thin insulating barrier between two superconductors. What is that junction called, and what ultrasensitive detector did John Clarke pioneer based on the same physics?",
+      "key": "Josephson junction; SQUID (superconducting quantum interference device)",
+      "sources": ["NobelPrize.org: setup = Josephson junction", "Berkeley Lab: Clarke pioneered SQUIDs"]
+    }
+  ]
+}

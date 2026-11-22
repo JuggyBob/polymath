@@ -1,0 +1,16 @@
+# forward jumps; a false boolean takes the branch
+push 3
+jz skip_one
+push 100
+print
+skip_one:
+push 200
+print
+false
+jz skip_two
+push 999
+print
+skip_two:
+push 7
+print
+halt

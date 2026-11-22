@@ -1,0 +1,3 @@
+// @api
+const bc = vm.compile('print 200;');
+console.log(vm.execute(vm.deserialize(vm.serialize(bc))).trim());

@@ -1,0 +1,2 @@
+// @api
+console.log(vm.serialize(vm.compile('print distinct([1]);')).trim());

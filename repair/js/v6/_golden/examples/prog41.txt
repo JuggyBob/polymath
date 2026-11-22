@@ -1,0 +1,2 @@
+// @api-perf
+perf('perf_v_sumrange', () => vm.runtime.sumRange(20000), 5);

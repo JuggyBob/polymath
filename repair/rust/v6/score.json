@@ -1,0 +1,80 @@
+{
+  "fixture": "v6",
+  "solution": "<REPO>\\repair-rust\\v6\\_golden",
+  "lang": "rust",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "correctness": {
+    "visible": {
+      "passed": 12,
+      "failed": 0,
+      "failed_names": []
+    },
+    "hidden": {
+      "passed": 26,
+      "failed": 0,
+      "failed_names": []
+    },
+    "total_passed": 38,
+    "total_failed": 0,
+    "score_zero": false
+  },
+  "performance": {
+    "visible": {
+      "vis_print": {
+        "runs_ms": [
+          0.167,
+          0.149,
+          0.147
+        ],
+        "median_ms": 0.15,
+        "all_pass": true,
+        "run_count": 3
+      },
+      "vis_disasm": {
+        "runs_ms": [
+          0.097,
+          0.095,
+          0.095
+        ],
+        "median_ms": 0.1,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "hidden": {
+      "perf_print": {
+        "runs_ms": [
+          2.99,
+          2.708,
+          2.458
+        ],
+        "median_ms": 2.71,
+        "all_pass": true,
+        "run_count": 3
+      },
+      "perf_disasm": {
+        "runs_ms": [
+          2.513,
+          2.242,
+          2.241
+        ],
+        "median_ms": 2.24,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "passed": 4,
+    "failed": 0
+  },
+  "baseline_visible_passed": 12,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST prog01_arith PASS\nTEST prog02_strings PASS\nTEST prog03_values PASS\nTEST prog04_variables PASS\nTEST prog05_arrays PASS\nTEST prog06_push PASS\nTEST prog07_if PASS\nTEST prog08_while PASS\nTEST prog11_nested_values PASS\nTEST prog12_arith2 PASS\nTEST prog09_disasm PASS\nTEST prog10_roundtrip_exec PASS\nPERF vis_print 0.167 PASS\nPERF vis_print 0.149 PASS\nPERF vis_print 0.147 PASS\nPERF vis_disasm 0.097 PASS\nPERF vis_disasm 0.095 PASS\nPERF vis_disasm 0.095 PASS\n\n",
+  "hidden_output_tail": "TEST h_distinct_basic PASS\nTEST h_distinct_types PASS\nTEST h_ge_lexer PASS\nTEST h_ne_lexer PASS\nTEST h_escape_nul PASS\nTEST h_escape_tab PASS\nTEST h_cmp_chain PASS\nTEST h_unary_chain PASS\nTEST h_nested_index PASS\nTEST h_truthy_empty_string PASS\nTEST h_str_cmp PASS\nTEST h_add_vars PASS\nTEST h_print_repeat PASS\nTEST h_len_unicode PASS\nTEST h_negative_index PASS\nTEST h_push_sequence PASS\nTEST h_empty_then PASS\nTEST h_nested_while PASS\nTEST h_array3 PASS\nTEST h_null_eq PASS\nTEST h_distinct_exec PASS\nTEST h_distinct_roundtrip PASS\nTEST h_distinct_disasm PASS\nTEST h_serial_full PASS\nTEST h_load_uninit PASS\nTEST h_stack_ops PASS\nPERF perf_print 2.990 PASS\nPERF perf_print 2.708 PASS\nPERF perf_print 2.458 PASS\nPERF perf_disasm 2.513 PASS\nPERF perf_disasm 2.242 PASS\nPERF perf_disasm 2.241 PASS\n\n"
+}

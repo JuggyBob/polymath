@@ -1,0 +1,3 @@
+print(concat("x", 1));
+print(concat(2, "y"));
+print(concat("a", "b"));

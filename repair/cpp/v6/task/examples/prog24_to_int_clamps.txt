@@ -1,0 +1,4 @@
+# a literal wider than 64 bits clamps to the signed 64-bit maximum
+push 999999999999999999999999
+print
+halt

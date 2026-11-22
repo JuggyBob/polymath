@@ -1,0 +1,31 @@
+{
+  "fixture": "v3",
+  "solution": "<REPO>\\repair-rust\\v3\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 16,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 24,
+    "failed": 0,
+    "total": 24,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 40,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 4,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST test_longer_tie PASS\nTEST test_longer_clear PASS\nTEST test_first_word PASS\nTEST test_slice_sum PASS\nTEST test_slice_largest PASS\nTEST test_choose PASS\nTEST test_counter_with PASS\nTEST test_counter_basic PASS\nTEST test_transfer PASS\nTEST test_parent_name PASS\nTEST test_descendant_count PASS\nTEST test_max_by_key PASS\nTEST test_cache_get_or PASS\nTEST test_cache_basic PASS\nTEST test_total_area PASS\nTEST test_describe PASS\n\n",
+  "hidden_output_tail": "TEST test_h_longer_tie PASS\nTEST test_h_longer_obvious PASS\nTEST test_h_first_word_spaces PASS\nTEST test_h_first_word_single PASS\nTEST test_h_choose_prefer_a PASS\nTEST test_h_choose_fallback PASS\nTEST test_h_sum_all PASS\nTEST test_h_sum_empty PASS\nTEST test_h_with_stores PASS\nTEST test_h_with_return PASS\nTEST test_h_transfer_clamped PASS\nTEST test_h_transfer_exact PASS\nTEST test_h_parent_link PASS\nTEST test_h_child_count PASS\nTEST test_h_descendants_deep PASS\nTEST test_h_descendants_leaf PASS\nTEST test_h_max_key PASS\nTEST test_h_max_key_single PASS\nTEST test_h_get_or_hit PASS\nTEST test_h_get_or_miss PASS\nTEST test_h_rect_area PASS\nTEST test_h_circle_area PASS\nTEST test_h_describe_mixed PASS\nTEST test_h_describe_empty PASS\n\n"
+}

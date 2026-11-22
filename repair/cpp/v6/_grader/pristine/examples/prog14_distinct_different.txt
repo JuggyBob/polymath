@@ -1,0 +1,6 @@
+# DISTINCT returns true when the two values differ
+push 7
+push 8
+distinct
+print
+halt

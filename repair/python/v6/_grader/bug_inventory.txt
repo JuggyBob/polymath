@@ -1,0 +1,30 @@
+Bug inventory (29)
+01 L1 string n escape not decoded
+02 L2 comment only at line start
+03 L3 >= not tokenised
+04 L4 tab is not whitespace
+05 L5 leading-zero numbers parsed as octal
+06 P1 not binds tighter than comparison
+07 P2 else-if chain unsupported
+08 P3 trailing comma rejected
+09 P4 and/or share one precedence level
+10 O1 disassembly name of DISTINCT is UNIQ
+11 O2 MOD has no printable name
+12 C1 SUB compiled as ADD
+13 C2 MOD compiled as DIV
+14 C3 stale jump patch across loops
+15 C4 DISTINCT compiled as LEN
+16 C5 empty array pushed as null
+17 V1 array equality by identity
+18 V2 string length counts UTF-8 bytes
+19 V3 negative and out of range index gives 0
+20 V4 not only recognises literal false
+21 V5 undefined variable gives 0
+22 V7 dedupe keys are raw values
+23 V6 linear opcode dispatch instead of table
+24 F1 empty string is truthy
+25 F2 array items rendered with str()
+26 D1 string arguments unquoted in disassembly
+27 S1 loads splits string arguments
+28 S2 DISTINCT deserialises as UNIQ
+29 S3 quadratic string building in dumps

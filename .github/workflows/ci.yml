@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Compile all Python sources
+        run: python -m compileall -q qa repair
+
+      - name: Dry-run QA suites (no model needed)
+        run: |
+          python qa/open-ended/run_suite.py --port 8080 --dry-run
+          python qa/closed-book/easy-mixed-12/run_closed_book.py --port 8080 --dry-run
+          python qa/closed-book/hard-mixed-20/run_closed_book.py --port 8080 --dry-run
+
+      - name: Check question files parse
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in Path('.').rglob('*.jsonl'):
+              rows = [json.loads(l) for l in p.read_text(encoding='utf-8').splitlines() if l.strip()]
+              assert rows, p
+              for r in rows:
+                  assert r.get('id') and r.get('q') and r.get('answer'), (p, r)
+              print(f'{p}: {len(rows)} questions')
+          PY
+
+      - name: No secrets or absolute home paths
+        run: |
+          if grep -RInE 'C:\\Users\\[A-Za-z0-9_]+|/c/Users/[A-Za-z0-9_]+|sk-[A-Za-z0-9]{20}|gho_[A-Za-z0-9]{20}' --include='*.py' --include='*.md' --include='*.json' --include='*.txt' --include='*.ps1' . ; then
+            echo "Found a home path or credential-like string" >&2
+            exit 1
+          fi

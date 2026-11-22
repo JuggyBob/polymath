@@ -1,0 +1,3 @@
+// @api-async
+const order = await vm.runtime.orderedMicrotasks(['w', 'x', 'y', 'z', 'v']);
+console.log(order.join(','));

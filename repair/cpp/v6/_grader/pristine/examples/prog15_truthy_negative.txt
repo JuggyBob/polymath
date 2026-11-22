@@ -1,0 +1,9 @@
+# a negative integer is truthy, so the conditional jump is not taken
+push -1
+jz zero
+push 5
+print
+zero:
+push 6
+print
+halt

@@ -1,0 +1,34 @@
+{
+  "fixture": "v5",
+  "solution": "<REPO>\\repair-rust\\v5\\run-qwen36-20261121",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 24,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 43,
+    "failed": 2,
+    "total": 45,
+    "failed_names": [
+      "test_h_count_primes_mixed",
+      "test_h_is_prime_one"
+    ]
+  },
+  "total": {
+    "passed": 67,
+    "failed": 2,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 24,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST test_v_vector_sum PASS\nTEST test_v_vector_dot_self PASS\nTEST test_v_vector_add_zero PASS\nTEST test_v_vector_scale_one PASS\nTEST test_v_sum_even_balanced PASS\nTEST test_v_fold_count_first_nonmatch PASS\nTEST test_v_apply_times_zero PASS\nTEST test_v_first_match_single PASS\nTEST test_v_total_mass_all_active PASS\nTEST test_v_mean_speed_two PASS\nTEST test_v_soa_mass_last_zero PASS\nTEST test_v_soa_speed_z_zero PASS\nTEST test_v_bits_roundtrip PASS\nTEST test_v_sign_negative PASS\nTEST test_v_reinterpret_small PASS\nTEST test_v_u64_bytes_zero PASS\nTEST test_v_maybe_from_some PASS\nTEST test_v_maybe_value_some PASS\nTEST test_v_pack_option_some PASS\nTEST test_v_color_code_red PASS\nTEST test_v_color_from_code_one PASS\nTEST test_v_is_prime_small PASS\nTEST test_v_count_primes_all PASS\nTEST test_v_legacy_odd PASS\n\n",
+  "hidden_output_tail": "ASS\nTEST test_h_fold_count_first_matches PASS\nTEST test_h_apply_times_once PASS\nTEST test_h_apply_times_many PASS\nTEST test_h_first_match_single PASS\nTEST test_h_first_match_multiple PASS\nTEST test_h_total_mass_inactive PASS\nTEST test_h_mean_speed_values PASS\nTEST test_h_mean_speed_perf PASS\nTEST test_h_soa_mass_last PASS\nTEST test_h_soa_speed_z_used PASS\nTEST test_h_bits_to_f32_known PASS\nTEST test_h_f32_to_bits_known PASS\nTEST test_h_u64_from_le_bytes PASS\nTEST test_h_u64_bytes_roundtrip PASS\nTEST test_h_sign_negative_zero PASS\nTEST test_h_reinterpret_min PASS\nTEST test_h_maybe_from_zero PASS\nTEST test_h_maybe_value_none PASS\nTEST test_h_pack_option_none PASS\nTEST test_h_unpack_option_one PASS\nTEST test_h_unpack_option_zero PASS\nTEST test_h_niche_sizes PASS\nTEST test_h_color_code_blue PASS\nTEST test_h_color_from_code_two PASS\nTEST test_h_legacy_frozen PASS\nTEST test_h_is_prime_zero PASS\nTEST test_h_is_prime_one FAIL\nTEST test_h_is_prime_small_primes PASS\nTEST test_h_is_prime_small_composites PASS\nTEST test_h_is_prime_semiprime_large PASS\nTEST test_h_is_prime_u64_max PASS\nTEST test_h_is_prime_large_prime PASS\nTEST test_h_count_primes_mixed FAIL\nTEST test_h_count_primes_perf PASS\n\n"
+}

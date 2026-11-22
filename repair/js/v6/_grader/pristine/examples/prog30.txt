@@ -1,0 +1,3 @@
+// @api
+const o = { tag: 'ok', extra: 1, read() { return this.tag; } };
+console.log(vm.runtime.methodCall(o, 'read'));

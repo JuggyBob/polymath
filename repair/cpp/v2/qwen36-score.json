@@ -1,0 +1,35 @@
+{
+  "fixture": "v2",
+  "solution": "<REPO>\\repair-cpp\\v2\\run-qwen36",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 12,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 17,
+    "failed": 1,
+    "failed_names": [
+      "test_h_list_category_alias"
+    ],
+    "total": 18
+  },
+  "total": {
+    "passed": 29,
+    "failed": 1,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 4,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "headers_modified": [],
+  "visible_output_tail": "TEST v_add_record PASS\nTEST v_total_score PASS\nTEST v_average_basic PASS\nTEST v_count_at_least PASS\nTEST v_count_in_category PASS\nTEST v_best_student PASS\nTEST v_worst_student PASS\nTEST v_list_by_category PASS\nTEST v_filter_passing PASS\nTEST v_remove_first PASS\nTEST v_average_after_add PASS\nTEST v_empty_book PASS\n",
+  "hidden_output_tail": "TEST test_h_total_empty PASS\nTEST test_h_total_single PASS\nTEST test_h_average_fraction PASS\nTEST test_h_count_at_least_single PASS\nTEST test_h_count_at_least_none PASS\nTEST test_h_count_category_mixed_case PASS\nTEST test_h_count_category_no_match PASS\nTEST test_h_best_tie_earliest PASS\nTEST test_h_best_single PASS\nTEST test_h_worst_tie_earliest PASS\nTEST test_h_worst_single PASS\nTEST test_h_list_category_alias FAIL\nTEST test_h_list_category_order PASS\nTEST test_h_filter_boundary_equal PASS\nTEST test_h_filter_none PASS\nTEST test_h_remove_last PASS\nTEST test_h_remove_middle_preserves_order PASS\nTEST test_h_average_after_mutation PASS\n"
+}

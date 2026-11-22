@@ -1,0 +1,35 @@
+{
+  "fixture": "v4",
+  "solution": "<REPO>\\repair-cpp\\v4\\run-qwen36",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 29,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 40,
+    "failed": 1,
+    "failed_names": [
+      "test_h_sorted_tie_order"
+    ],
+    "total": 41
+  },
+  "total": {
+    "passed": 69,
+    "failed": 1,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 29,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "headers_modified": [],
+  "visible_output_tail": "TEST matrix_dims PASS\nTEST matrix_at PASS\nTEST matrix_fill PASS\nTEST matrix_add PASS\nTEST matrix_multiply_identity PASS\nTEST matrix_transpose_symmetric PASS\nTEST reduce_sum_first_row PASS\nTEST sum_row_basic PASS\nTEST max_row_basic PASS\nTEST min_row_basic PASS\nTEST product_row_basic PASS\nTEST fold_add PASS\nTEST fold_mul PASS\nTEST traverse_small PASS\nTEST sum_range_int PASS\nTEST sum_range_double PASS\nTEST max_range_int PASS\nTEST count_above_range_int PASS\nTEST sorted_distinct PASS\nTEST clamp_within PASS\nTEST clamp_over PASS\nTEST total_small PASS\nTEST same_sum_rows PASS\nTEST factor_once PASS\nTEST dup_rows_present PASS\nTEST registry_has PASS\nTEST registry_call PASS\nTEST registry_cached_same PASS\nTEST registry_size PASS\n",
+  "hidden_output_tail": "PASS\nTEST test_h_transpose_nonsquare PASS\nTEST test_h_reduce_all_rows PASS\nTEST test_h_sum_row_precision PASS\nTEST test_h_sum_row_negative PASS\nTEST test_h_max_row_value PASS\nTEST test_h_min_row_value PASS\nTEST test_h_product_row_value PASS\nTEST test_h_fold_sub_order PASS\nTEST test_h_fold_add_order PASS\nTEST test_h_format_exact PASS\nTEST test_h_format_empty PASS\nTEST test_h_traverse_small PASS\nTEST test_h_traverse_perf PASS\nTEST test_h_sum_range_preserves_input PASS\nTEST test_h_sum_range_const_source PASS\nTEST test_h_max_range_double PASS\nTEST test_h_count_above_double PASS\nTEST test_h_sorted_tie_order FAIL\nTEST test_h_sorted_distinct_values PASS\nTEST test_h_clamp_negative PASS\nTEST test_h_clamp_over_available PASS\nTEST test_h_total_overflow PASS\nTEST test_h_total_negative PASS\nTEST test_h_same_sum_empty PASS\nTEST test_h_same_sum_mixed PASS\nTEST test_h_factor_first_call PASS\nTEST test_h_factor_repeat_call PASS\nTEST test_h_dup_rows_present PASS\nTEST test_h_dup_rows_absent PASS\nTEST test_h_registry_capacity PASS\nTEST test_h_registry_duplicate PASS\nTEST test_h_cache_distinct_names PASS\nTEST test_h_cache_distinct_args PASS\nTEST test_h_cache_clear PASS\nTEST test_h_registry_missing PASS\n"
+}

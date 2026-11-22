@@ -1,0 +1,9 @@
+let total = 0;
+let i = 0;
+while i < 4 {
+  let total = total + i;
+  let i = i + 1;
+}
+print(total);
+let words = ["a", "b"];
+print(len(words));

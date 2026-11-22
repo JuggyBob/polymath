@@ -1,0 +1,10 @@
+# printing an array and the null value
+arrnew
+true
+apush
+str "hi"
+apush
+print
+null
+print
+halt

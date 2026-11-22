@@ -1,0 +1,14 @@
+{
+  "files": {
+    "run-tests.cmd": "b6a1d4f16eaed26d1deefa882bc0ebf5aabc01c9687a825fa2f85eb009d8e6db",
+    "inventory/models.py": "46f55847f84b51374ef5bdcbc64cc831df95abbf7cb6a47bba0cf129d23e8252",
+    "tests/test_report.py": "b66dd492dd1a2e18b89ac37867ef286389f159428e245ef260665266ce3ab216",
+    "tests/test_store.py": "03b2cb75f0aa4118c6ff425951468a6a3dad9b051d07da4c2393fe0b470e547e",
+    "README.md": "16b64a33f67a6266703de0cfb9c0befec9a2e213b2346abb8725dd632db6bad0",
+    "tests/test_search.py": "6827f58120d89ccb8e77f5573dd029177d0647c64b9f3ce522399fc00e59d435",
+    "inventory/store.py": "f38679e71299072dccb674d61f84372f4bdf34758dca16ad61d758c3b7064a94",
+    "inventory/__init__.py": "beb2bb93091ed2e0701425b8425201a950b8db90ba0b1decb3db1bb103acaec6",
+    "AGENTS.md": "e1b207c5fa5469604313725d489f266609bb9714eab6303ce381e5df832468fd",
+    "inventory/report.py": "134f5236ba7605a4954cbc7529a1398673bd445b914b22e46e271ad69b73d826"
+  }
+}

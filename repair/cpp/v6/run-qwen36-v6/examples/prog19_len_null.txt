@@ -1,0 +1,5 @@
+# LEN of a value with no length is zero
+null
+len
+print
+halt

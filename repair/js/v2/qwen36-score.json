@@ -1,0 +1,31 @@
+{
+  "fixture": "v2",
+  "solution": "<REPO>\\repair-js\\v2\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 14,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 20,
+    "failed": 0,
+    "total": 20,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 34,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 5,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST retry_eventually PASS\nTEST retry_first_try PASS\nTEST timeout_deadline PASS\nTEST timeout_source_reject PASS\nTEST maplimit_order PASS\nTEST maplimit_concurrency PASS\nTEST emitter_emit_this PASS\nTEST emitter_off_regular PASS\nTEST emitter_once PASS\nTEST emitter_off_once PASS\nTEST debounce_trailing PASS\nTEST memoize_sequential PASS\nTEST memoize_concurrent PASS\nTEST pool_slot_index PASS\n\n",
+  "hidden_output_tail": "TEST h_retry_success PASS\nTEST h_retry_exhaust PASS\nTEST h_timeout_resolve PASS\nTEST h_timeout_deadline PASS\nTEST h_maplimit_values PASS\nTEST h_maplimit_empty PASS\nTEST h_emitter_basic PASS\nTEST h_emitter_off_regular PASS\nTEST h_emitter_emit_false PASS\nTEST h_debounce_single PASS\nTEST h_memoize_sequential PASS\nTEST h_memoize_key_types PASS\nTEST h_pool_results PASS\nTEST h_retry_attempts PASS\nTEST h_timeout_source_reject PASS\nTEST h_maplimit_order PASS\nTEST h_emitter_this PASS\nTEST h_emitter_once PASS\nTEST h_debounce_wait PASS\nTEST h_memoize_concurrent PASS\n\n"
+}

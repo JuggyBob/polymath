@@ -1,0 +1,61 @@
+{
+  "fixture": "v5",
+  "solution": "<REPO>\\repair-js\\v5\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 12,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 17,
+    "failed": 29,
+    "total": 46,
+    "failed_names": [
+      "test_h_async_collect",
+      "test_h_async_collect_empty",
+      "test_h_async_finally_full",
+      "test_h_async_finally_partial",
+      "test_h_async_first_n",
+      "test_h_async_gen_pairs",
+      "test_h_async_gen_range",
+      "test_h_async_gen_range_single",
+      "test_h_cache_bound_isolation",
+      "test_h_cache_memoize_distinct_objects",
+      "test_h_cache_memoize_weak_calls",
+      "test_h_cache_stamp_stable",
+      "test_h_num_count_primes_11",
+      "test_h_num_isprime_0",
+      "test_h_num_isprime_1",
+      "test_h_num_isprime_9",
+      "test_h_num_isprime_large_square",
+      "test_h_num_isprime_negative",
+      "test_h_num_isprime_perf_1m",
+      "test_h_num_isprime_perfect_square_small",
+      "test_h_num_perfect_square_false",
+      "test_h_num_perfect_square_true",
+      "test_h_num_sum_primes",
+      "test_h_proxy_delete_resets",
+      "test_h_proxy_descriptor_enum",
+      "test_h_proxy_get_missing",
+      "test_h_proxy_has_absent",
+      "test_h_proxy_own_keys",
+      "test_h_proxy_set_string_ignored"
+    ]
+  },
+  "total": {
+    "passed": 29,
+    "failed": 29,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 12,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST test_v_exports PASS\nTEST test_v_scheduler_label PASS\nTEST test_v_schedule_sync PASS\nTEST test_v_plain_store PASS\nTEST test_v_identity PASS\nTEST test_v_sync_range PASS\nTEST test_v_is_even PASS\nTEST test_v_square PASS\nTEST test_v_add PASS\nTEST test_v_isprime_two PASS\nTEST test_v_isprime_three PASS\nTEST test_v_isprime_eight PASS\n\n",
+  "hidden_output_tail": "AIL\nTEST test_h_proxy_descriptor_enum FAIL\nTEST test_h_cache_memoize_calls PASS\nTEST test_h_cache_memoize_distinct_objects FAIL\nTEST test_h_cache_bound_isolation FAIL\nTEST test_h_cache_bound_same_obj PASS\nTEST test_h_cache_stamp_stable FAIL\nTEST test_h_cache_memoize_weak_calls FAIL\nTEST test_h_async_gen_range FAIL\nTEST test_h_async_gen_range_single FAIL\nTEST test_h_async_finally_full FAIL\nTEST test_h_async_finally_partial FAIL\nTEST test_h_async_collect FAIL\nTEST test_h_async_collect_empty FAIL\nTEST test_h_async_first_n FAIL\nTEST test_h_async_gen_pairs FAIL\nTEST test_h_num_isprime_2 PASS\nTEST test_h_num_isprime_3 PASS\nTEST test_h_num_isprime_9 FAIL\nTEST test_h_num_isprime_0 FAIL\nTEST test_h_num_isprime_1 FAIL\nTEST test_h_num_isprime_negative FAIL\nTEST test_h_num_isprime_perfect_square_small FAIL\nTEST test_h_num_isprime_large_prime PASS\nTEST test_h_num_isprime_large_composite PASS\nTEST test_h_num_isprime_large_square FAIL\nTEST test_h_num_isprime_perf_1m FAIL\nTEST test_h_num_isprime_complexity PASS\nTEST test_h_num_perfect_square_true FAIL\nTEST test_h_num_perfect_square_false FAIL\nTEST test_h_num_count_primes_7 PASS\nTEST test_h_num_count_primes_11 FAIL\nTEST test_h_num_sum_primes FAIL\n\n"
+}

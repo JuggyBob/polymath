@@ -1,0 +1,3 @@
+let a = [10, 20];
+push(a, 30);
+print(get(a, -1));

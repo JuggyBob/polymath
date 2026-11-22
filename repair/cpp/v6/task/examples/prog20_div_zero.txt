@@ -1,0 +1,10 @@
+# division by zero yields null for both positive and negative numerators
+push 5
+push 0
+div
+print
+push -7
+push 0
+div
+print
+halt

@@ -1,0 +1,20 @@
+let x = 3;
+if x < 5 {
+  print("small");
+} else {
+  print("big");
+}
+if 0 {
+  print("yes");
+} else {
+  print("no");
+}
+if x == 9 {
+  print("nine");
+} else {
+  if x == 3 {
+    print("three");
+  } else {
+    print("other");
+  }
+}

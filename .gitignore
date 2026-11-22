@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Build artifacts
+build/
+dist/
+target/
+*.obj
+*.o
+*.exe
+*.dll
+*.so
+*.pdb
+*.ilk
+*.a
+*.lib
+
+# Node
+node_modules/
+package-lock.json
+
+# Environments and secrets
+.env
+.env.*
+*.key
+*.pem
+*_api_key.txt
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Runtime output
+reasoning/
+results-*.json
+*-hermes-output.txt
+*-hermes-stderr.txt
+*_hermes_usage_*.json
+*-output.txt
+*-goose.txt
+*.log
+*.ndjson
+*.trace
+*-trace.txt

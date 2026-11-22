@@ -1,0 +1,31 @@
+{
+  "task": "repair-fixture-v2:order-ledger",
+  "solution": "<REPO>\\repair\\v2\\run-qwen36",
+  "visible": {
+    "returncode": 0,
+    "passed": 19,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 23,
+    "failed": 1,
+    "failed_names": [
+      "test_expiring_ordered_by_ts"
+    ],
+    "total": 24
+  },
+  "total": {
+    "passed": 42,
+    "failed": 1,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 13,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "files_removed": [],
+  "public_api_intact": true
+}

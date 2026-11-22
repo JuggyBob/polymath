@@ -1,0 +1,4 @@
+# a hash inside quotes is string data, not a comment
+str "a#b"
+print
+halt

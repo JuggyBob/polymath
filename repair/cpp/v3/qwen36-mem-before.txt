@@ -1,0 +1,6 @@
+CommittedBytes=30937358336
+CommitLimit=61325537280
+AvailableMBytes=14088
+FreePhysicalMemoryKB=14362880
+TotalVisibleMemorySizeKB=32625244
+TotalRAMGB=31.11

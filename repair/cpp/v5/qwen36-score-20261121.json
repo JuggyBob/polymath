@@ -1,0 +1,36 @@
+{
+  "fixture": "v5",
+  "solution": "<REPO>\\repair-cpp\\v5\\run-qwen36-20261121",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 16,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 47,
+    "failed": 2,
+    "failed_names": [
+      "test_h_sched_pending_and_completed",
+      "test_h_sched_run_all_twice"
+    ],
+    "total": 49
+  },
+  "total": {
+    "passed": 63,
+    "failed": 2,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 16,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "headers_modified": [],
+  "visible_output_tail": "TEST payload_copy PASS\nTEST payload_move_marks_source PASS\nTEST pool_dims PASS\nTEST pool_claim PASS\nTEST pool_create_default PASS\nTEST pool_create_from PASS\nTEST ring_capacity_power_of_two PASS\nTEST ring_empty_initial PASS\nTEST ring_size_small PASS\nTEST ring_fifo_small PASS\nTEST sched_submit PASS\nTEST sched_run_count PASS\nTEST sched_done_flags PASS\nTEST clamp_within PASS\nTEST prime_naive_small PASS\nTEST prime_optimized_small PASS\n",
+  "hidden_output_tail": "ll_preserves_data PASS\nTEST test_h_ring_pop_empty_int PASS\nTEST test_h_ring_pop_empty_payload PASS\nTEST test_h_ring_fifo_wrap PASS\nTEST test_h_ring_lvalue_push_copies PASS\nTEST test_h_ring_rvalue_push_moves PASS\nTEST test_h_ring_interleaved_size PASS\nTEST test_h_ring_perf_1m_ops PASS\nTEST test_h_ring_int_fifo_basic PASS\nTEST test_h_sched_submit_capacity PASS\nTEST test_h_sched_submit_over_capacity_no_change PASS\nTEST test_h_sched_run_all_once PASS\nTEST test_h_sched_run_all_twice FAIL\nTEST test_h_sched_pending_and_completed FAIL\nTEST test_h_sched_results_in_order PASS\nTEST test_h_sched_done_flags PASS\nTEST test_h_sched_reset_reusable PASS\nTEST test_h_sched_clamp_in_range PASS\nTEST test_h_sched_clamp_low PASS\nTEST test_h_sched_clamp_high PASS\nTEST test_h_sched_clamp_unsigned_large PASS\nTEST test_h_sched_clamp_unsigned_negative_lo PASS\nTEST test_h_prime_naive_edges PASS\nTEST test_h_prime_opt_zero PASS\nTEST test_h_prime_opt_one PASS\nTEST test_h_prime_opt_negative PASS\nTEST test_h_prime_opt_two PASS\nTEST test_h_prime_opt_small_values PASS\nTEST test_h_prime_opt_medium_prime PASS\nTEST test_h_prime_opt_int_max_prime PASS\nTEST test_h_prime_opt_large_even PASS\nTEST test_h_prime_opt_perf PASS\n"
+}

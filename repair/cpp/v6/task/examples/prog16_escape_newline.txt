@@ -1,0 +1,7 @@
+# the \n escape is one character, inside the quoted string
+str "a\nb"
+print
+str "a\nb"
+len
+print
+halt

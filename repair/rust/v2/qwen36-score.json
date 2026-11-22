@@ -1,0 +1,31 @@
+{
+  "fixture": "v2",
+  "solution": "<REPO>\\repair-rust\\v2\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 14,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 20,
+    "failed": 0,
+    "total": 20,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 34,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 5,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST v_parse_ok PASS\nTEST v_parse_bad_number PASS\nTEST v_fromstr_empty PASS\nTEST v_parse_all_ok PASS\nTEST v_parse_all_bad PASS\nTEST v_first_valid_ok PASS\nTEST v_count_over PASS\nTEST v_take_top_n PASS\nTEST v_skip_first_n PASS\nTEST v_parse_scores PASS\nTEST v_sum_values_ok PASS\nTEST v_sum_values_negative PASS\nTEST v_join_labels PASS\nTEST v_display_reading PASS\n\n",
+  "hidden_output_tail": "TEST h_parse_trim PASS\nTEST h_parse_empty PASS\nTEST h_parse_negative PASS\nTEST h_parse_out_of_range PASS\nTEST h_fromstr_invalid_number PASS\nTEST h_parse_all_empty PASS\nTEST h_parse_all_order PASS\nTEST h_first_valid_all_bad PASS\nTEST h_first_valid_first_good PASS\nTEST h_count_over_all PASS\nTEST h_count_over_negative PASS\nTEST h_take_zero PASS\nTEST h_skip_zero PASS\nTEST h_skip_all PASS\nTEST h_parse_scores_malformed PASS\nTEST h_sum_values_empty PASS\nTEST h_sum_values_positive PASS\nTEST h_sum_values_negative PASS\nTEST h_display_error_invalid PASS\nTEST h_display_reading_negative PASS\n\n"
+}

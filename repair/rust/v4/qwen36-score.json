@@ -1,0 +1,31 @@
+{
+  "fixture": "v4",
+  "solution": "<REPO>\\repair-rust\\v4\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 28,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 40,
+    "failed": 0,
+    "total": 40,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 68,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 28,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST test_rawvec_push_len PASS\nTEST test_rawvec_get PASS\nTEST test_rawvec_first PASS\nTEST test_rawvec_sum_short PASS\nTEST test_rawvec_contains_head PASS\nTEST test_rawvec_reverse_single PASS\nTEST test_rawvec_pop_single PASS\nTEST test_rawvec_as_slice PASS\nTEST test_shared_new PASS\nTEST test_shared_inc PASS\nTEST test_shared_set PASS\nTEST test_shared_fetch_add_store PASS\nTEST test_shared_compare_set_match PASS\nTEST test_shared_add_capped_small PASS\nTEST test_cell_new PASS\nTEST test_cell_set PASS\nTEST test_cell_replace_state PASS\nTEST test_slot_empty PASS\nTEST test_slot_put_get PASS\nTEST test_slot_take PASS\nTEST test_slot_put_if_empty_first PASS\nTEST test_split_fields_basic PASS\nTEST test_parse_pairs_basic PASS\nTEST test_first_field_single PASS\nTEST test_parse_int_dup PASS\nTEST test_prefix_sum_result PASS\nTEST test_legacy_lenient PASS\nTEST test_legacy_valid PASS\n\n",
+  "hidden_output_tail": "l PASS\nTEST test_h_reverse_full PASS\nTEST test_h_fetch_add_old PASS\nTEST test_h_compare_set_mismatch PASS\nTEST test_h_add_capped PASS\nTEST test_h_cell_replace_old PASS\nTEST test_h_slot_init_count PASS\nTEST test_h_slot_put_if_empty_second PASS\nTEST test_h_slot_get_or_stored PASS\nTEST test_h_split_empty_fields PASS\nTEST test_h_parse_pairs_empty_value PASS\nTEST test_h_first_field PASS\nTEST test_h_parse_int_index PASS\nTEST test_h_perf_linear PASS\nTEST test_h_rawvec_len PASS\nTEST test_h_rawvec_get PASS\nTEST test_h_rawvec_first_empty PASS\nTEST test_h_rawvec_pop_single PASS\nTEST test_h_rawvec_clear PASS\nTEST test_h_shared_inc PASS\nTEST test_h_shared_set PASS\nTEST test_h_shared_strong_count PASS\nTEST test_h_cell_thread PASS\nTEST test_h_cell_get PASS\nTEST test_h_slot_empty PASS\nTEST test_h_slot_take_twice PASS\nTEST test_h_slot_is_init PASS\nTEST test_h_split_no_empty PASS\nTEST test_h_parse_pairs_all PASS\nTEST test_h_first_field_single PASS\nTEST test_h_parse_int_dup PASS\nTEST test_h_parse_int_oob PASS\nTEST test_h_prefix_sum_result PASS\nTEST test_h_zerocopy_fields PASS\nTEST test_h_zerocopy_pairs PASS\nTEST test_h_legacy_lenient PASS\nTEST test_h_legacy_valid PASS\nTEST test_h_rawvec_thread PASS\n\n"
+}

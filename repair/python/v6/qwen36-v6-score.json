@@ -1,0 +1,70 @@
+{
+  "fixture": "v6",
+  "solution": "<REPO>\\repair\\v6\\run-qwen36-v6",
+  "lang": "python",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "correctness": {
+    "visible": {
+      "passed": 79,
+      "failed": 0,
+      "failed_names": []
+    },
+    "hidden": {
+      "passed": 29,
+      "failed": 0,
+      "failed_names": []
+    },
+    "total_passed": 108,
+    "total_failed": 0,
+    "score_zero": false
+  },
+  "performance": {
+    "visible": {
+      "perf_vis_small": {
+        "runs_ms": [
+          0.867,
+          0.869,
+          0.861
+        ],
+        "median_ms": 0.87,
+        "all_pass": true,
+        "run_count": 3
+      }
+    },
+    "hidden": {
+      "perf_vm_dispatch": {
+        "runs_ms": [
+          246.225,
+          237.697,
+          242.976
+        ],
+        "median_ms": 242.98,
+        "all_pass": false,
+        "run_count": 3
+      },
+      "perf_serialize": {
+        "runs_ms": [
+          2001.924,
+          1305.566,
+          1296.687
+        ],
+        "median_ms": 1305.57,
+        "all_pass": false,
+        "run_count": 3
+      }
+    },
+    "passed": 1,
+    "failed": 2
+  },
+  "baseline_visible_passed": 27,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "ple_prog22 PASS\nTEST roundtrip_prog22 PASS\nTEST example_prog23 PASS\nTEST roundtrip_prog23 PASS\nTEST example_prog24 PASS\nTEST roundtrip_prog24 PASS\nTEST example_prog25 PASS\nTEST roundtrip_prog25 PASS\nTEST example_prog26 PASS\nTEST roundtrip_prog26 PASS\nTEST example_prog27 PASS\nTEST roundtrip_prog27 PASS\nTEST example_prog28 PASS\nTEST roundtrip_prog28 PASS\nTEST example_prog29 PASS\nTEST roundtrip_prog29 PASS\nTEST example_prog30 PASS\nTEST roundtrip_prog30 PASS\nTEST example_prog31 PASS\nTEST roundtrip_prog31 PASS\nTEST example_prog32 PASS\nTEST disasm_prog32 PASS\nTEST roundtrip_prog32 PASS\nTEST example_prog33 PASS\nTEST roundtrip_prog33 PASS\nTEST example_prog34 PASS\nTEST roundtrip_prog34 PASS\nTEST example_prog35 PASS\nTEST roundtrip_prog35 PASS\nTEST example_prog36 PASS\nTEST roundtrip_prog36 PASS\nTEST example_prog37 PASS\nTEST roundtrip_prog37 PASS\nTEST vis_disasm_simple PASS\nTEST vis_roundtrip_simple PASS\nPERF perf_vis_small 0.867 PASS\nPERF perf_vis_small 0.869 PASS\nPERF perf_vis_small 0.861 PASS\n\n",
+  "hidden_output_tail": "TEST h_sub PASS\nTEST h_mod PASS\nTEST h_ge PASS\nTEST h_tab_ws PASS\nTEST h_trailing_comment PASS\nTEST h_leading_zero PASS\nTEST h_not_precedence PASS\nTEST h_else_if PASS\nTEST h_trailing_comma PASS\nTEST h_and_or_precedence PASS\nTEST h_array_eq PASS\nTEST h_unicode_len PASS\nTEST h_neg_index PASS\nTEST h_not_zero PASS\nTEST h_undefined_var PASS\nTEST h_distinct_exec PASS\nTEST h_roundtrip_space PASS\nTEST h_two_loops PASS\nTEST h_empty_array PASS\nTEST h_distinct_nested PASS\nTEST h_string_newline PASS\nTEST h_bool_array PASS\nTEST h_null_array PASS\nTEST h_string_array PASS\nTEST h_empty_string PASS\nTEST h_distinct_disasm PASS\nTEST h_distinct_roundtrip PASS\nTEST h_disasm_string PASS\nTEST h_mod_disasm PASS\nPERF perf_vm_dispatch 246.225 FAIL\nPERF perf_vm_dispatch 237.697 FAIL\nPERF perf_vm_dispatch 242.976 FAIL\nPERF perf_serialize 2001.924 FAIL\nPERF perf_serialize 1305.566 FAIL\nPERF perf_serialize 1296.687 FAIL\n\n"
+}

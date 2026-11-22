@@ -1,0 +1,30 @@
+{
+  "task_dir": "<REPO>\\repair\\goose_qwen",
+  "visible": {
+    "returncode": 0,
+    "passed": 10,
+    "failed": 0
+  },
+  "hidden": {
+    "returncode": 0,
+    "passed": 8,
+    "failed": 0
+  },
+  "tests_modified": [],
+  "files_changed": [],
+  "files_added": [
+    "AGENTS.md",
+    "README.md",
+    "inventory/__init__.py",
+    "inventory/models.py",
+    "inventory/report.py",
+    "inventory/store.py",
+    "run-tests.cmd",
+    "tests/test_report.py",
+    "tests/test_search.py",
+    "tests/test_store.py"
+  ],
+  "files_removed": [],
+  "visible_failures": [],
+  "hidden_failures": []
+}

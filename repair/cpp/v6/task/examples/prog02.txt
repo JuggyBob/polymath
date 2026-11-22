@@ -1,0 +1,10 @@
+# addition stays inside the 64-bit range
+push 9223372036854775807
+push 1
+add
+print
+push -9223372036854775808
+push 1
+add
+print
+halt

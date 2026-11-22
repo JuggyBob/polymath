@@ -1,0 +1,20 @@
+# arrays: build, measure, index
+arrnew
+push 10
+apush
+push 20
+apush
+push 30
+apush
+dup
+len
+print
+dup
+push 0
+aget
+print
+dup
+push 2
+aget
+print
+halt

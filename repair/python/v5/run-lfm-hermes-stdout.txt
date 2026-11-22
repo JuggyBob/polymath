@@ -1,0 +1,3 @@
+This conversation has grown too long for lfm2.5-24b-a2b to read, and Hermes couldn't shrink it enough automatically. Start a new session with /new (your history is kept), or try /compress once more. Switching to a model with a bigger context window also works.
+
+🔄 Session auto-reset — the conversation exceeded the maximum context size and could not be compressed further. Your next message will start a fresh session.

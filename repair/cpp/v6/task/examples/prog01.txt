@@ -1,0 +1,22 @@
+# four arithmetic operators and the remainder
+push 12
+push 5
+add
+print
+push 12
+push 5
+sub
+print
+push 12
+push 5
+mul
+print
+push 20
+push 6
+div
+print
+push 20
+push 6
+mod
+print
+halt

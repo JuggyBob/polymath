@@ -1,0 +1,31 @@
+{
+  "fixture": "v1",
+  "solution": "<REPO>\\repair-rust\\v1\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 12,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 18,
+    "failed": 0,
+    "total": 18,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 30,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 5,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST v_sum_basic PASS\nTEST v_sum_overflow PASS\nTEST v_max_basic PASS\nTEST v_max_empty PASS\nTEST v_average_basic PASS\nTEST v_count_matching PASS\nTEST v_unique_sorted PASS\nTEST v_chunk PASS\nTEST v_chunk_zero PASS\nTEST v_clamp PASS\nTEST v_word_count PASS\nTEST v_char_count PASS\n\n",
+  "hidden_output_tail": "TEST h_sum_empty PASS\nTEST h_sum_negative PASS\nTEST h_sum_large_mixed PASS\nTEST h_max_single PASS\nTEST h_max_negative PASS\nTEST h_max_empty PASS\nTEST h_average_fraction PASS\nTEST h_average_negative PASS\nTEST h_average_single PASS\nTEST h_count_mixed PASS\nTEST h_count_all PASS\nTEST h_unique_mixed PASS\nTEST h_unique_empty PASS\nTEST h_chunk_exact PASS\nTEST h_chunk_partial PASS\nTEST h_clamp_low PASS\nTEST h_word_count_unicode PASS\nTEST h_char_count_unicode PASS\n\n"
+}

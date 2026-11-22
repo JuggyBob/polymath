@@ -1,0 +1,6 @@
+# swapping a one-item stack pads it with null: the null ends up on top
+push 4
+swap
+swap
+print
+halt

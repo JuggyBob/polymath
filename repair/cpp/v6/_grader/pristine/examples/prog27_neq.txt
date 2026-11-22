@@ -1,0 +1,6 @@
+# NEQ is the negation of EQ
+push 1
+push 2
+neq
+print
+halt

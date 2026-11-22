@@ -1,0 +1,6 @@
+# subtraction saturates at the lower 64-bit bound
+push -9223372036854775808
+push 1
+sub
+print
+halt

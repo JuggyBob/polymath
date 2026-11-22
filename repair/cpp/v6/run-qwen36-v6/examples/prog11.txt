@@ -1,0 +1,12 @@
+# concatenation with numbers and with strings
+str "count="
+push 42
+concat
+print
+str "a"
+str "b"
+str "c"
+concat
+concat
+print
+halt

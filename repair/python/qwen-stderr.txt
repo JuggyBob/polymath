@@ -1,0 +1,4 @@
+Warning: running headless with --yolo / approval-mode=yolo and no sandbox. All tool calls (shell, write, edit) auto-execute at this process's privilege level. Configure tools.executionSandbox on Linux or a supported legacy sandbox via --sandbox / QWEN_SANDBOX, or set QWEN_CODE_SUPPRESS_YOLO_WARNING=1 to silence this notice.
+tools.eager: "ask_user_question" matches no discovered tool, so it keeps nothing eager and every other non-exempt tool stays deferred to tool_search. Check the spelling or drop the entry.
+tools.eager: "enter_plan_mode" matches no discovered tool, so it keeps nothing eager and every other non-exempt tool stays deferred to tool_search. Check the spelling or drop the entry.
+tools.eager: "exit_plan_mode" matches no discovered tool, so it keeps nothing eager and every other non-exempt tool stays deferred to tool_search. Check the spelling or drop the entry.

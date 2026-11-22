@@ -1,0 +1,33 @@
+{
+  "fixture": "v3",
+  "solution": "<REPO>\\repair-cpp\\v3\\run-qwen36",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 16,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 26,
+    "failed": 0,
+    "failed_names": [],
+    "total": 26
+  },
+  "total": {
+    "passed": 42,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 5,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "headers_modified": [],
+  "visible_output_tail": "TEST v_basic_insert_get PASS\nTEST v_size_after_insert PASS\nTEST v_contains PASS\nTEST v_overwrite PASS\nTEST v_remove_size PASS\nTEST v_remove_contains PASS\nTEST v_case_sensitive PASS\nTEST v_hash_example PASS\nTEST v_capacity_initial PASS\nTEST v_capacity_growth PASS\nTEST v_tombstone_lookup PASS\nTEST v_wraparound PASS\nTEST v_buffer_get PASS\nTEST v_buffer_deep_copy PASS\nTEST v_self_assign PASS\nTEST v_buffer_destructor PASS\n",
+  "hidden_output_tail": "TEST test_h_hash_empty PASS\nTEST test_h_hash_a PASS\nTEST test_h_home_slots PASS\nTEST test_h_empty_map PASS\nTEST test_h_insert_get_many PASS\nTEST test_h_get_missing_unchanged PASS\nTEST test_h_overwrite_keeps_size PASS\nTEST test_h_case_distinct PASS\nTEST test_h_remove_missing PASS\nTEST test_h_remove_size_many PASS\nTEST test_h_tombstones_count PASS\nTEST test_h_tombstone_skip PASS\nTEST test_h_tombstone_reuse PASS\nTEST test_h_wraparound_lookup PASS\nTEST test_h_wraparound_remove PASS\nTEST test_h_growth_preserves PASS\nTEST test_h_growth_twice PASS\nTEST test_h_copy_map_independent PASS\nTEST test_h_assign_map_independent PASS\nTEST test_h_map_self_assign PASS\nTEST test_h_buffer_set_get PASS\nTEST test_h_buffer_copy_ctor PASS\nTEST test_h_buffer_assign PASS\nTEST test_h_buffer_self_assign PASS\nTEST test_h_buffer_destructor PASS\nTEST test_h_map_destructor PASS\n"
+}

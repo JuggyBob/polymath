@@ -1,0 +1,22 @@
+{
+  "task_dir": "<REPO>\\repair\\qwen36",
+  "visible": {
+    "returncode": 0,
+    "passed": 10,
+    "failed": 0
+  },
+  "hidden": {
+    "returncode": 0,
+    "passed": 8,
+    "failed": 0
+  },
+  "tests_modified": [],
+  "files_changed": [
+    "inventory/report.py",
+    "inventory/store.py"
+  ],
+  "files_added": [],
+  "files_removed": [],
+  "visible_failures": [],
+  "hidden_failures": []
+}

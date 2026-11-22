@@ -1,0 +1,6 @@
+# null and the integer zero are different values
+null
+push 0
+eq
+print
+halt

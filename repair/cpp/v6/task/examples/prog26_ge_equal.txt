@@ -1,0 +1,6 @@
+# GE is true when both operands are equal
+push 5
+push 5
+ge
+print
+halt

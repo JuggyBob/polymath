@@ -1,0 +1,9 @@
+# label names are case-insensitive: jz Ll reaches LL:
+push 0
+jz Ll
+push 7
+print
+LL:
+push 8
+print
+halt

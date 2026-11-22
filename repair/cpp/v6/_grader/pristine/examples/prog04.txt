@@ -1,0 +1,17 @@
+# booleans: constants, negation, and, or
+true
+print
+false
+print
+true
+not
+print
+true
+false
+and
+print
+true
+false
+or
+print
+halt

@@ -1,0 +1,5 @@
+0000 push 1
+0001 push 2
+0002 distinct
+0003 print
+0004 halt

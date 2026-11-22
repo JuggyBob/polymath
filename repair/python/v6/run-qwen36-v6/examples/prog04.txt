@@ -1,0 +1,7 @@
+let a = [1, 2, 3];
+print(a);
+print(len(a));
+print(get(a, 0));
+print(get(a, 2));
+push(a, 4);
+print(a);

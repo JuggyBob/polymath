@@ -1,0 +1,33 @@
+{
+  "fixture": "v1",
+  "solution": "<REPO>\\repair-cpp\\v1\\run-qwen36",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 11,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 21,
+    "failed": 0,
+    "failed_names": [],
+    "total": 21
+  },
+  "total": {
+    "passed": 32,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 4,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "headers_modified": [],
+  "visible_output_tail": "TEST max_temp PASS\nTEST min_temp PASS\nTEST average_temp PASS\nTEST count_above PASS\nTEST day_of_min PASS\nTEST valid_range_in PASS\nTEST valid_range_out PASS\nTEST swap_values PASS\nTEST sum_even PASS\nTEST sort_ascending PASS\nTEST count_duplicates PASS\n",
+  "hidden_output_tail": "TEST h_average_fraction PASS\nTEST h_average_negative PASS\nTEST h_average_single PASS\nTEST h_count_above_strict PASS\nTEST h_count_above_negative PASS\nTEST h_day_of_min_two PASS\nTEST h_day_of_min_first PASS\nTEST h_day_of_min_last PASS\nTEST h_range_low PASS\nTEST h_range_high PASS\nTEST h_range_below PASS\nTEST h_range_inverted PASS\nTEST h_sum_even_negative PASS\nTEST h_sum_even_zero PASS\nTEST h_sort_reverse PASS\nTEST h_sort_duplicates PASS\nTEST h_sort_two PASS\nTEST h_sort_no_overrun PASS\nTEST h_dups_triple PASS\nTEST h_dups_none PASS\nTEST h_dups_all_distinct_pairs PASS\n"
+}

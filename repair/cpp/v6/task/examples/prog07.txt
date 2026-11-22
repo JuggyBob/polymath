@@ -1,0 +1,10 @@
+# variables are overwritten by later stores
+push 10
+set counter
+get counter
+print
+push 3
+set counter
+get counter
+print
+halt

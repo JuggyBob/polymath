@@ -1,0 +1,59 @@
+{
+  "fixture": "v6",
+  "solution": "<REPO>\\repair-cpp\\v6\\run-qwen36-v6",
+  "lang": "cpp",
+  "compile": {
+    "baseline": true,
+    "visible": true,
+    "hidden": true
+  },
+  "correctness": {
+    "visible": {
+      "passed": 35,
+      "failed": 0,
+      "failed_names": []
+    },
+    "hidden": {
+      "passed": 29,
+      "failed": 0,
+      "failed_names": []
+    },
+    "total_passed": 64,
+    "total_failed": 0,
+    "score_zero": false
+  },
+  "performance": {
+    "visible": {},
+    "hidden": {
+      "perf_disasm": {
+        "runs_ms": [
+          90.0379,
+          88.5667,
+          88.8025
+        ],
+        "median_ms": 88.8,
+        "all_pass": false,
+        "run_count": 3
+      },
+      "perf_vars": {
+        "runs_ms": [
+          172.999,
+          173.794,
+          183.693
+        ],
+        "median_ms": 173.79,
+        "all_pass": false,
+        "run_count": 3
+      }
+    },
+    "passed": 0,
+    "failed": 2
+  },
+  "baseline_visible_passed": 35,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST util_add_small PASS\nTEST util_sub_small PASS\nTEST util_mul_small PASS\nTEST util_align_small PASS\nTEST util_trim PASS\nTEST util_to_int PASS\nTEST rep_int PASS\nTEST rep_str PASS\nTEST rep_bool PASS\nTEST rep_null PASS\nTEST rep_array PASS\nTEST truth_int PASS\nTEST truth_str PASS\nTEST truth_bool PASS\nTEST truth_null PASS\nTEST truth_array PASS\nTEST eq_same PASS\nTEST eq_type_strict PASS\nTEST eq_null PASS\nTEST eq_array PASS\nTEST value_move_ctor PASS\nTEST lex_kinds PASS\nTEST parse_nodes PASS\nTEST compile_ops PASS\nTEST disasm_basic PASS\nTEST serialize_roundtrip PASS\nTEST run_arith PASS\nTEST run_add_saturates PASS\nTEST run_strings PASS\nTEST run_bools PASS\nTEST run_compare PASS\nTEST run_stack PASS\nTEST run_vars PASS\nTEST run_jumps PASS\nTEST run_arrays PASS\n\n",
+  "hidden_output_tail": "_h_distinct_different PASS\nTEST test_h_distinct_equal PASS\nTEST test_h_disasm_distinct PASS\nTEST test_h_serialize_distinct_roundtrip PASS\nTEST test_h_sub_saturates PASS\nTEST test_h_mul_saturates PASS\nTEST test_h_align_exact PASS\nTEST test_h_to_int_clamps PASS\nTEST test_h_truthy_negative PASS\nTEST test_h_null_not_zero PASS\nTEST test_h_move_assign_clears_source PASS\nTEST test_h_escape_newline PASS\nTEST test_h_hash_inside_string PASS\nTEST test_h_neq PASS\nTEST test_h_label_case_insensitive PASS\nTEST test_h_labels_recompiled_clean PASS\nTEST test_h_ge_equal PASS\nTEST test_h_len_null PASS\nTEST test_h_div_by_zero PASS\nTEST test_h_swap_single PASS\nTEST test_h_variables_isolated_per_run PASS\nTEST test_h_serialize_repeatable PASS\nTEST test_h_mod_roundtrip_executes PASS\nTEST test_h_disasm_mod PASS\nTEST test_h_mod_direct PASS\nPERF perf_disasm 90.0379 FAIL\nPERF perf_disasm 88.5667 FAIL\nPERF perf_disasm 88.8025 FAIL\nPERF perf_vars 172.999 FAIL\nPERF perf_vars 173.794 FAIL\nPERF perf_vars 183.693 FAIL\n\n"
+}

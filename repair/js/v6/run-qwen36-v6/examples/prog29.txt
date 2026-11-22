@@ -1,0 +1,4 @@
+// @api
+const mk = v => { const o = { v: 1 }; Object.defineProperty(o, 'id', { value: v }); return o; };
+console.log(vm.runtime.cachedValue(mk(1), o => o.id));
+console.log(vm.runtime.cachedValue(mk(2), o => o.id));

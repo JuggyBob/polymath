@@ -1,0 +1,6 @@
+# multiplication saturates at the upper 64-bit bound
+push 9223372036854775807
+push 2
+mul
+print
+halt

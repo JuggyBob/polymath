@@ -1,0 +1,36 @@
+{
+  "task": "repair-fixture-v4:telemetry-hard",
+  "solution": "<REPO>\\repair\\v4\\run-qwen36",
+  "visible": {
+    "returncode": 0,
+    "passed": 28,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 36,
+    "failed": 6,
+    "failed_names": [
+      "test_h_latest_tie_desc",
+      "test_h_randomized_latest",
+      "test_h_slow_rank_10k",
+      "test_h_snapshot_independent_events",
+      "test_h_traced_preserves_doc",
+      "test_h_traced_preserves_name"
+    ],
+    "total": 42
+  },
+  "total": {
+    "passed": 64,
+    "failed": 6,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 28,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "files_removed": [],
+  "public_api_intact": true
+}

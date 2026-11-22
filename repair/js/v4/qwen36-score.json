@@ -1,0 +1,34 @@
+{
+  "fixture": "v4",
+  "solution": "<REPO>\\repair-js\\v4\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 28,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 38,
+    "failed": 2,
+    "total": 40,
+    "failed_names": [
+      "test_h_once_multiple",
+      "test_h_once_single"
+    ]
+  },
+  "total": {
+    "passed": 66,
+    "failed": 2,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 28,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST v_collect_basic PASS\nTEST v_collect_empty PASS\nTEST v_chunk_even PASS\nTEST v_chunk_size_one PASS\nTEST v_map_ordered_basic PASS\nTEST v_map_ordered_empty PASS\nTEST v_pipe_basic PASS\nTEST v_pipe_empty PASS\nTEST v_buffer_push_drain PASS\nTEST v_buffer_size PASS\nTEST v_buffer_not_closed_initially PASS\nTEST v_cache_getcache_is_weakmap PASS\nTEST v_cache_double_basic PASS\nTEST v_cache_for_basic PASS\nTEST v_cache_for_distinct_ids PASS\nTEST v_put_no_throw PASS\nTEST v_read_unknown PASS\nTEST v_lazy_getvalue_before_init PASS\nTEST v_lazy_compute PASS\nTEST v_lazy_a_before_register PASS\nTEST v_lazy_config PASS\nTEST v_event_emit_single PASS\nTEST v_event_count PASS\nTEST v_event_snapshot_single PASS\nTEST v_event_emit_async_sync_listener PASS\nTEST v_scope_schedule_count PASS\nTEST v_scope_lookup_hit PASS\nTEST v_scope_lookup_miss PASS\n\n",
+  "hidden_output_tail": "ze_three PASS\nTEST test_h_chunk_larger_than_input PASS\nTEST test_h_map_ordered_delays PASS\nTEST test_h_map_ordered_values PASS\nTEST test_h_map_ordered_error PASS\nTEST test_h_pipe_throw PASS\nTEST test_h_pipe_partial_no_leak PASS\nTEST test_h_pipe_value_count PASS\nTEST test_h_buffer_close PASS\nTEST test_h_buffer_push_after_close PASS\nTEST test_h_cache_cached PASS\nTEST test_h_cache_same_id_distinct PASS\nTEST test_h_cache_id_mutated PASS\nTEST test_h_cache_for_appends PASS\nTEST test_h_put_read PASS\nTEST test_h_put_overwrite PASS\nTEST test_h_lazy_default_b PASS\nTEST test_h_lazy_after_init PASS\nTEST test_h_lazy_compute_after_init PASS\nTEST test_h_lazy_config_after_init PASS\nTEST test_h_lazy_register_b PASS\nTEST test_h_lazy_register_b_twice PASS\nTEST test_h_emit_order PASS\nTEST test_h_emit_args PASS\nTEST test_h_once_single FAIL\nTEST test_h_once_multiple FAIL\nTEST test_h_snapshot_dynamic_add PASS\nTEST test_h_emit_dynamic_add PASS\nTEST test_h_emit_async_waits PASS\nTEST test_h_emit_async_order PASS\nTEST test_h_scope_values PASS\nTEST test_h_scope_indices PASS\nTEST test_h_scope_two_batches PASS\nTEST test_h_perf_correctness PASS\nTEST test_h_perf_lookup PASS\nTEST test_h_scope_lookup_rebuild PASS\n\n"
+}

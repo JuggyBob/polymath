@@ -1,0 +1,31 @@
+{
+  "fixture": "v3",
+  "solution": "<REPO>\\repair-js\\v3\\run-qwen36",
+  "compile": {
+    "visible": true,
+    "hidden": true
+  },
+  "visible": {
+    "passed": 16,
+    "failed": 0,
+    "failed_names": []
+  },
+  "hidden": {
+    "passed": 27,
+    "failed": 0,
+    "total": 27,
+    "failed_names": []
+  },
+  "total": {
+    "passed": 43,
+    "failed": 0,
+    "score_zero": false
+  },
+  "baseline_visible_passed": 4,
+  "regressions": [],
+  "tests_modified": [],
+  "tests_removed": [],
+  "tests_added": [],
+  "visible_output_tail": "TEST greet_direct PASS\nTEST greet_extracted PASS\nTEST has_own PASS\nTEST has_inherited PASS\nTEST parent_kind PASS\nTEST child_override PASS\nTEST invoke_method PASS\nTEST seq_first PASS\nTEST seq_second PASS\nTEST flatten_basic PASS\nTEST append_immutable PASS\nTEST groupby_independent PASS\nTEST clone_nested PASS\nTEST remove_key_gone PASS\nTEST same_strict PASS\nTEST withdefaults_tags PASS\n\n",
+  "hidden_output_tail": "TEST test_h_greet_extracted PASS\nTEST test_h_greet_two_instances PASS\nTEST test_h_has_inherited PASS\nTEST test_h_has_deep_chain PASS\nTEST test_h_has_own_still PASS\nTEST test_h_proto_not_shared PASS\nTEST test_h_proto_instanceof PASS\nTEST test_h_proto_child_kind PASS\nTEST test_h_invoke_receiver PASS\nTEST test_h_invoke_method_uses_other_field PASS\nTEST test_h_seq_first_use PASS\nTEST test_h_seq_fresh_each_call PASS\nTEST test_h_flatten_delegation PASS\nTEST test_h_flatten_empty_arrays PASS\nTEST test_h_append_no_mutate PASS\nTEST test_h_append_chain PASS\nTEST test_h_groupby_independent PASS\nTEST test_h_groupby_keys PASS\nTEST test_h_clone_nested PASS\nTEST test_h_clone_sibling PASS\nTEST test_h_remove_key_gone PASS\nTEST test_h_remove_key_object_keys PASS\nTEST test_h_same_loose PASS\nTEST test_h_same_null_undefined PASS\nTEST test_h_same_values PASS\nTEST test_h_withdefaults_tags PASS\nTEST test_h_withdefaults_override PASS\n\n"
+}

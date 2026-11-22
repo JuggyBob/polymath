@@ -1,0 +1,18 @@
+SCORE 8/14
+
+PASS  text:Project Aurora      found=True
+PASS  text:Quarterly Report    found=True
+FAIL  text:Executive Summary   found=False
+FAIL  text:Q3 2026             found=False
+FAIL  heading1_uses_style      Heading1 paragraphs=0
+PASS  heading2_uses_style      Heading2 paragraphs=2
+FAIL  bold_run_present         bold run markers=0
+FAIL  italic_run_present       italic run markers=0
+PASS  colored_text             non-black colors=['FF0000']
+PASS  enlarged_font            sizes(half-pt)=[36]
+PASS  highlight                highlights=['yellow']
+PASS  image_embedded           media files={'word/media/image1.png': 1572}
+PASS  table_present            tables=1
+FAIL  alignment_used           alignments=['left']
+
+plain text length=56  media={'word/media/image1.png': 1572}

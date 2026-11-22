@@ -1,0 +1,114 @@
+{
+  "note": "BrowseComp-style MULTI-HOP research set. Facts were inherited from browsecomp-web-10 (verified 2026-11-17) and INDEPENDENTLY RE-VERIFIED by live web search on 2026-11-20 against primary sources: NobelPrize.org press release and scientific background, Google and Qolab announcements, PNAS laureate profile; Olympics.com Games page, medal table and ceremony reports; UNFCCC COP30 executive report, COP30 official site and UN News; FIFA.com match report, records and 'Chelsea confirm Maresca exit'. These are hand-written questions, not official benchmark items. Ground truth is in the key and hops fields; do not show the file to the model under test.",
+  "design": "Every question hides the intermediate entity. The agent must discover fact A before it can formulate the search for fact B, and normally needs a third fact from a different domain. Each item records the required hops and an estimated minimum number of tool turns. A single search result page should not contain the whole answer.",
+  "system": "You are a research assistant with web_search and web_fetch tools. You MUST use web_search to research the question and web_fetch to open and confirm the key sources before answering. Do not answer from memory alone. Several parts of each question depend on an entity you must first identify; work through them one at a time. Answer concisely and precisely, name the sources you used, and end with a short line: FINAL: <answer>",
+  "questions": [
+    {
+      "id": "H01", "tier": "hard", "topic": "sport", "min_turns": 4,
+      "q": "A club won a 2025 football final 3-0 at a stadium in New Jersey. Its manager later left the club. Name the club, the player who scored the opening two goals in that final, and the manager.",
+      "key": "Chelsea; Cole Palmer; Enzo Maresca",
+      "hops": [
+        "identify the 3-0 final at MetLife Stadium (13 Jul 2025) -> Chelsea vs Paris Saint-Germain",
+        "find who scored the first two goals -> Cole Palmer",
+        "find which Chelsea manager departed -> Enzo Maresca"
+      ],
+      "sources": ["FIFA.com: final at MetLife Stadium, New Jersey, 13 Jul 2025", "AP/CNN: Palmer scored twice, Joao Pedro once", "FIFA.com 'Chelsea confirm Maresca exit'"]
+    },
+    {
+      "id": "H02", "tier": "hard", "topic": "science+tech", "min_turns": 5,
+      "q": "One of the three 2025 Nobel Physics laureates is Chief Scientist for Quantum Hardware at a big tech company's quantum AI division. Another is CTO of a Los Angeles quantum startup. Name the company, the startup, and the third laureate.",
+      "key": "Google (Google Quantum AI); Qolab; John Clarke",
+      "hops": [
+        "job clue -> Michel H. Devoret -> Google Quantum AI",
+        "job clue -> John M. Martinis -> Qolab",
+        "the remaining laureate of the three -> John Clarke"
+      ],
+      "sources": ["NobelPrize.org press release, 7 Oct 2025", "NobelPrize.org laureate affiliation details"]
+    },
+    {
+      "id": "H03", "tier": "hard", "topic": "science", "min_turns": 4,
+      "q": "The 2025 Nobel Prize in Physics honoured experiments using a circuit element named after a physicist. One laureate pioneered an ultrasensitive detector based on the same physics. Name the element and that laureate.",
+      "key": "Josephson junction; John Clarke",
+      "hops": [
+        "identify the circuit element in the prize-winning work -> Josephson junction",
+        "find which laureate pioneered the related detector -> John Clarke (SQUID)"
+      ],
+      "sources": ["NobelPrize.org scientific background: Josephson junction", "Berkeley Lab: Clarke pioneered SQUIDs"]
+    },
+    {
+      "id": "H04", "tier": "hard", "topic": "sport", "min_turns": 5,
+      "q": "At a Winter Olympics where ski mountaineering made its debut, the cauldron in the larger host city was lit by two athletes. Name those two athletes, the country that topped the medal table, and its gold medal count.",
+      "key": "Deborah Compagnoni and Alberto Tomba; Norway; 18 gold",
+      "hops": [
+        "debut sport -> Milano Cortina 2026",
+        "find the Milan cauldron lighters -> Compagnoni and Tomba",
+        "find the medal-table winner and its gold count -> Norway, 18"
+      ],
+      "sources": ["Olympics.com Milano Cortina 2026: opening at San Siro in the larger host city", "Wikipedia 2026 Winter Olympics medal table"]
+    },
+    {
+      "id": "H05", "tier": "hard", "topic": "sport", "min_turns": 5,
+      "q": "A Winter Games held in February 2026 had its closing ceremony in an arena in a different city from the opening ceremony. Name that arena, the two athletes who lit the cauldron in the opening-ceremony city, and the exact start and end dates of the Games.",
+      "key": "Verona Arena; Deborah Compagnoni and Alberto Tomba; 6-22 February 2026",
+      "hops": [
+        "identify the Games -> Milano Cortina 2026",
+        "closing venue -> Verona Arena",
+        "Milan cauldron lighters -> Compagnoni and Tomba",
+        "dates -> 6-22 Feb 2026"
+      ],
+      "sources": ["Olympics.com Milano Cortina 2026", "Wikipedia 2026 Winter Olympics: closing ceremony at Verona Arena", "Olympics.com Milano Cortina 2026: 6-22 Feb 2026"]
+    },
+    {
+      "id": "H06", "tier": "hard", "topic": "climate", "min_turns": 5,
+      "q": "A 2025 climate summit in the Amazon launched a mission named after the city where it was held, and its final text referenced only one earlier COP decision. Name the mission, the president of the 2025 summit, and the year of the earlier decision.",
+      "key": "Belem Mission to 1.5; Andre Correa do Lago; 2023 (COP28)",
+      "hops": [
+        "mission name -> COP30 in Belem",
+        "president -> Andre Correa do Lago",
+        "the sole referenced decision -> COP28 UAE Consensus, adopted 2023 in Dubai"
+      ],
+      "sources": ["COP30 official site", "UN News: UAE Consensus adopted at COP28, Dubai 2023; final text refers only to it"]
+    },
+    {
+      "id": "H07", "tier": "hard", "topic": "climate+sport", "min_turns": 5,
+      "q": "A 2025 climate summit agreed to triple adaptation finance by 2035. At the Winter Olympics held the following year, which country topped the medal table, and what was its total medal count?",
+      "key": "Norway; 41 medals",
+      "hops": [
+        "finance pledge -> COP30, Belem, Nov 2025 -> following year = 2026",
+        "2026 Winter Olympics medal table -> Norway, 18 gold, 41 total"
+      ],
+      "sources": ["COP30 official site", "Wikipedia 2026 Winter Olympics medal table"]
+    },
+    {
+      "id": "H08", "tier": "hard", "topic": "sport", "min_turns": 4,
+      "q": "The runner-up in the 2025 FIFA Club World Cup final lost 3-0. A second player, besides the one who scored twice, also scored in that final. Name the runner-up and both scorers.",
+      "key": "Paris Saint-Germain; Cole Palmer (two); Joao Pedro (one)",
+      "hops": [
+        "3-0 final -> Chelsea vs Paris Saint-Germain",
+        "match report -> Palmer scored twice, Joao Pedro once"
+      ],
+      "sources": ["FIFA.com final report", "AP/CNN match report"]
+    },
+    {
+      "id": "H09", "tier": "hard", "topic": "science+sport", "min_turns": 6,
+      "q": "A 2025 Nobel laureate is CTO of a Los Angeles quantum startup. The club that won the 2025 Club World Cup had a manager who later left. Give the startup's name and the manager's surname.",
+      "key": "Qolab; Maresca",
+      "hops": [
+        "laureate + job + place -> John M. Martinis -> Qolab",
+        "Club World Cup winner -> Chelsea",
+        "departing Chelsea manager -> Enzo Maresca"
+      ],
+      "sources": ["NobelPrize.org press release", "FIFA.com 'Chelsea confirm Maresca exit'"]
+    },
+    {
+      "id": "H10", "tier": "hard", "topic": "sport+science", "min_turns": 6,
+      "q": "The opening ceremony of the 2026 Winter Olympics was held in a stadium that is home to two major football clubs in the same city. The 2025 Nobel Prize in Physics honoured work on a junction named after a physicist. Name the stadium and that physicist.",
+      "key": "San Siro; Brian Josephson",
+      "hops": [
+        "opening ceremony venue -> San Siro, Milan",
+        "prize-winning circuit element -> Josephson junction -> named after Brian Josephson"
+      ],
+      "sources": ["Olympics.com Milano Cortina 2026: opening ceremony at San Siro, home of AC Milan and Inter", "NobelPrize.org scientific background: Josephson junction, named for Brian Josephson"]
+    }
+  ]
+}

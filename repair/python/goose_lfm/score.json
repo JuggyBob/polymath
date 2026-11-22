@@ -1,0 +1,40 @@
+{
+  "task_dir": "<REPO>\\repair\\goose_lfm",
+  "visible": {
+    "returncode": 1,
+    "passed": 6,
+    "failed": 4
+  },
+  "hidden": {
+    "returncode": 1,
+    "passed": 4,
+    "failed": 4
+  },
+  "tests_modified": [],
+  "files_changed": [],
+  "files_added": [
+    "AGENTS.md",
+    "README.md",
+    "inventory/__init__.py",
+    "inventory/models.py",
+    "inventory/report.py",
+    "inventory/store.py",
+    "run-tests.cmd",
+    "tests/test_report.py",
+    "tests/test_search.py",
+    "tests/test_store.py"
+  ],
+  "files_removed": [],
+  "visible_failures": [
+    "FAIL: test_total_exact_cents (test_report.ReportTests.test_total_exact_cents)",
+    "FAIL: test_search_case_insensitive (test_search.SearchTests.test_search_case_insensitive)",
+    "FAIL: test_list_page_first_page (test_store.StoreTests.test_list_page_first_page)",
+    "FAIL: test_list_page_second_page (test_store.StoreTests.test_list_page_second_page)"
+  ],
+  "hidden_failures": [
+    "FAIL: test_last_partial_page (test_hidden.HiddenPagination.test_last_partial_page)",
+    "FAIL: test_unicode_casefold (test_hidden.HiddenSearch.test_unicode_casefold)",
+    "FAIL: test_large_exact_sum (test_hidden.HiddenTotals.test_large_exact_sum)",
+    "FAIL: test_quantity_matters (test_hidden.HiddenTotals.test_quantity_matters)"
+  ]
+}

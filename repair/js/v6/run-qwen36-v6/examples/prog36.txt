@@ -1,0 +1,3 @@
+// @api
+const lines = vm.disassemble(vm.compile('while true { print 1; print 2; }')).trim().split('\n');
+console.log(lines.filter(l => l.indexOf('JMP') >= 0)[0].trim());

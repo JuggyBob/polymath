@@ -1,0 +1,22 @@
+# comparisons
+push 3
+push 5
+lt
+print
+push 3
+push 5
+le
+print
+push 5
+push 3
+gt
+print
+push 5
+push 3
+ge
+print
+push 4
+push 4
+eq
+print
+halt
