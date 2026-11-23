@@ -16,8 +16,22 @@ checks respectively). The agent must read the contract and fix the code.
 | `js/` | JavaScript / Node | v1–v6 | `score_js.js` (v1–v5), `score_v6.py` (v6) |
 | `rust/` | Rust (stdlib only) | v1–v6 | `score_rust.py`, `score_v6.py` |
 
+### v7 — hard cascading-fault edition
+
+`v7/` exists in all four languages and is built from one canonical manifest,
+[`v7-tests.json`](v7-tests.json). It is deliberately harder than v1–v6: bugs
+are masked by prerequisite faults, so new failures appear only after earlier
+ones are fixed; the VM gains deterministic fibers and a checksummed snapshot
+format; and there are 45 visible examples, 49 hidden tests and three performance
+gates per language.
+See [`docs/V7-DESIGN.md`](../docs/V7-DESIGN.md) for the shared contract and
+[`docs/V7-RESULTS.md`](../docs/V7-RESULTS.md) for measured results. v7
+intentionally overrides v6 design rule R5 (no masked bugs); this is documented
+in the v7 design doc.
+
 Version summary (Python): v1 inventory service (in `template/`), v2 order ledger, v3 job scheduler,
-v4 telemetry/aggregation, v5 async coordinator + weakref cache, v6 bytecode VM.
+v4 telemetry/aggregation, v5 async coordinator + weakref cache, v6 bytecode VM,
+v7 MiniVM with masked cascading faults, deterministic fibers and snapshots.
 
 ## Layout of one version
 

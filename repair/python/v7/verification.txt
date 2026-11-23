@@ -1,0 +1,127 @@
+MiniVM v7 — Python fixture verification (2026-11-23)
+Python 3.11.9 (<USERPROFILE>\AppData\Local\Programs\Python\Python311\python.exe)
+Working directory for every command: <REPO>\repair\python\v7
+
+The canonical manifest is <REPO>\repair\v7-tests.json (45 examples, 49 hidden
+tests, 3 perf workloads). Examples prog33_array_alias .. prog45_serial_fibers
+were added to task/examples/ and _golden/examples/ with host-language drivers
+and .expected files whose bytes equal the manifest `expected` strings exactly.
+Both visible suites emit exactly 45 TEST lines with canonical names in manifest
+order. The hidden suite is unchanged: exactly 49 canonical h_* TEST lines.
+
+--------------------------------------------------------------------------
+1. Golden vs visible suite
+--------------------------------------------------------------------------
+> python _golden\tests\test_visible.py
+TEST lines: 45 (prog01_arith .. prog45_serial_fibers)
+golden visible PASS: 45
+golden visible FAIL: 0
+PERF perf_print    137.162 / 135.709 / 216.426 ms   median 137.162  PASS
+PERF perf_disasm     6.012 /   5.892 /  10.133 ms   median   6.012  PASS
+PERF perf_snapshot  10.878 /  11.029 /  11.309 ms   median  11.029  PASS
+Limits: 900 / 700 / 700 ms. All three gates PASS. Three runs per workload.
+
+--------------------------------------------------------------------------
+2. Golden vs hidden suite
+--------------------------------------------------------------------------
+The hidden suite was temporarily copied from _grader\hidden_tests\test_hidden.py
+to _golden\tests\test_hidden.py for this run and removed afterwards.
+
+> python _golden\tests\test_hidden.py
+TEST lines: 49 (all canonical h_* names)
+golden hidden PASS: 49
+golden hidden FAIL: 0
+PERF perf_print    205.254 / 146.748 / 139.483 ms   median 146.748  PASS
+PERF perf_disasm     5.858 /   5.842 /   6.045 ms   median   5.858  PASS
+PERF perf_snapshot   6.377 /   6.307 /   6.266 ms   median   6.307  PASS
+All three gates PASS. Three runs per workload.
+
+--------------------------------------------------------------------------
+3. Pristine vs visible suite
+--------------------------------------------------------------------------
+> python _grader\pristine\tests\test_visible.py
+TEST lines: 45
+pristine visible PASS: 17
+pristine visible FAIL: 28   (minimum 1 required)
+Failing names include prog01_arith, prog05_arrays, prog20_negative_index,
+prog28_fiber_basic, prog32_snapshot_badmagic, prog45_serial_fibers.
+PERF perf_print   6142.735 / 6473.745 / 7152.667 ms   median 6473.745  FAIL
+PERF perf_disasm    82.845 /  81.052 /  92.678 ms   median   82.845  PASS
+PERF perf_snapshot   5.561 /   5.484 /   5.460 ms   median    5.484  FAIL
+(perf_snapshot FAILs because restore() raises on the corrupted snapshot.)
+
+--------------------------------------------------------------------------
+4. Scorer run against the golden solution
+--------------------------------------------------------------------------
+> python score_v7.py --fixture <REPO>\repair\python\v7 --solution <REPO>\repair\python\v7\_golden --lang python --out <REPO>\repair\python\v7\_score_golden.json
+score_zero: false
+correctness.visible: passed 45, failed 0, failed_names []
+correctness.hidden:  passed 49, failed 0, failed_names []
+performance.passed 6, performance.failed 0
+visible perf medians: perf_print 139.12, perf_disasm 5.87, perf_snapshot 6.25 ms
+hidden  perf medians: perf_print 139.44, perf_disasm 5.82, perf_snapshot 6.28 ms
+every perf entry: run_count 3, all_pass true
+baseline_visible_passed 17, baseline_hidden_passed 21
+regressions []  tests_modified []  tests_added []  tests_removed []
+files_removed []  public_api_intact true
+wall_clock_seconds: baseline 21.355, baseline_hidden 14.938, visible 0.571,
+                    hidden 0.606, total 37.470
+Report fields present: fixture, solution, lang, compile, correctness,
+performance, baseline_visible_passed, baseline_hidden_passed, regressions,
+tests_modified, tests_added, tests_removed, files_removed, public_api_intact,
+wall_clock_seconds, visible_output_tail, hidden_output_tail. Each performance
+entry has runs_ms, median_ms, run_count and all_pass.
+
+--------------------------------------------------------------------------
+5. Hidden-baseline regression probe (temporary fixture copy, then discarded)
+--------------------------------------------------------------------------
+A temporary copy of the fixture's hidden suite gained one extra case,
+h_probe_badversion7 (restore of a snapshot with version byte 7), which passes
+on pristine. The temporary solution accepted version 7, so that case failed;
+all 45 visible tests still passed.
+> python score_v7.py --fixture <temp fixture> --solution <temp solution> --lang python --out <temp>/regression.json
+score_zero: true
+regressions: ["h_probe_badversion7"]
+correctness.visible: passed 45, failed 0
+correctness.hidden:  failed 1 (h_probe_badversion7)
+baseline_hidden_passed 22, tests_modified []
+A hidden-only correctness regression therefore sets score_zero=true.
+
+--------------------------------------------------------------------------
+6. Perf-only failure probe (temporary solution, then discarded)
+--------------------------------------------------------------------------
+A temporary golden copy reintroduced the O(n^2) output accumulation in
+vm.VM._print. All correctness tests passed but perf_print failed.
+> python score_v7.py --fixture <temp fixture> --solution <temp solution> --lang python --out <temp>/perf.json
+score_zero: false
+regressions: []
+correctness.visible failed 0, correctness.hidden failed 0
+performance.failed 2 (visible and hidden perf_print), perf_print all_pass false
+A purely perf failure never sets score_zero.
+
+--------------------------------------------------------------------------
+7. Fault observability audit
+--------------------------------------------------------------------------
+Every remaining task-vs-golden difference was reintroduced one at a time into
+a clean golden copy and both suites were run on it (45 + 49 TEST lines, 3
+perf workloads each). Result: 32 faults produce at least one correctness FAIL,
+3 faults produce only a perf FAIL (snapshot globals write order, snapshot
+globals read order, O(n^2) output accumulation), and 0 faults are invisible.
+The three named permanently invisible faults (OP_NAMES[SPAWN]="PUSHITEM",
+OP_NAMES[YIELD]="YEILD", serialize.HEADER="V6BC1") were removed from task/src.
+Eleven more zero-signal faults were also made correct in task/src: the
+redundant `!=` clause in parse_equality, fnv1a's `data[::2]` stride, the three
+O(n^2) Writer byte/u32/i64 methods, restored fiber pc, restored ready/blocked
+state and next_id, nested format_value with str(item), _wake's insert(0) and
+_load's dict(self.vars) copy. Final difference count: 35, all observable.
+
+--------------------------------------------------------------------------
+8. Integrity checks
+--------------------------------------------------------------------------
+> python -c "..."  (sha256 over every file, relative paths)
+task files 104, pristine files 104, byte-identical: True
+score_v7.py and _grader/score_v7.py byte-identical: True
+No __pycache__ directories or .pyc files remain in task/, _golden/ or
+_grader/pristine/.
+Golden tests directory contains only test_visible.py (hidden copy removed).
+Example driver/expected counts: task 45/45, golden 45/45, pristine 45/45.

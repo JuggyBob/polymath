@@ -1,0 +1,58 @@
+"""Numeric opcodes and their printable names."""
+
+PUSH = 1
+LOAD = 2
+STORE = 3
+ADD = 4
+SUB = 5
+MUL = 6
+DIV = 7
+LT = 8
+GT = 9
+LE = 10
+GE = 11
+EQ = 12
+NE = 13
+NEG = 14
+NOT = 15
+CONCAT = 16
+LEN = 17
+JMP = 18
+JZ = 19
+DUP = 20
+POP = 21
+SWAP = 22
+ARR = 23
+PUSHITEM = 24
+GETITEM = 25
+DISTINCT = 26
+PRINT = 27
+HALT = 28
+FIBER = 29
+SPAWN = 30
+YIELD = 31
+JOIN = 32
+
+OP_NAMES = {
+    PUSH: "PUSH", LOAD: "LOAD", STORE: "STORE",
+    ADD: "ADD", SUB: "SUB", MUL: "MUL", DIV: "DIV",
+    LT: "LT", GT: "GT", LE: "LE", GE: "GE",
+    EQ: "EQ", NE: "NE", NEG: "NEG", NOT: "NOT",
+    CONCAT: "CONCAT", LEN: "LEN", JMP: "JMP", JZ: "JZ",
+    DUP: "DUP", POP: "POP", SWAP: "SWAP", ARR: "ARR",
+    PUSHITEM: "PUSHITEM", GETITEM: "GETITEM", DISTINCT: "DISTINCT",
+    PRINT: "PRINT", HALT: "HALT", FIBER: "FIBER", SPAWN: "SPAWN",
+    YIELD: "YIELD", JOIN: "JOIN",
+}
+
+NAME_TO_OP = {
+    "PUSH": PUSH, "LOAD": LOAD, "STORE": STORE,
+    "ADD": ADD, "SUB": SUB, "MUL": MUL, "DIV": DIV,
+    "LT": LT, "GT": GT, "LE": LE, "GE": GE,
+    "EQ": EQ, "NE": NE, "NEG": NEG, "NOT": NOT,
+    "CONCAT": CONCAT, "LEN": LEN, "JMP": JMP, "JZ": JZ,
+    "DUP": DUP, "POP": POP, "SWAP": SWAP, "ARR": ARR,
+    "PUSHITEM": PUSHITEM, "GETITEM": GETITEM, "DISTINCT": DISTINCT,
+    "PRINT": PRINT, "HALT": HALT, "FIBER": FIBER, "SPAWN": SPAWN,
+    "YIELD": YIELD, "JOIN": JOIN,
+}

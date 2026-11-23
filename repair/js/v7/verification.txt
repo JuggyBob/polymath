@@ -1,0 +1,240 @@
+MiniVM v7 JavaScript fixture — measured verification (45 examples)
+===================================================================
+
+Environment
+-----------
+Node: <NODE>  -> v24.22.1  (referred to as <NODE>)
+Python: 3.11.9  (referred to as <PY>)
+Fixture root: <REPO>\repair\js\v7  (referred to as v7)
+Scratch: <TEMP>  (referred to as <TEMP>)
+HARNESS_NODE was set to <NODE> in the shell only; no absolute node path is
+stored in any committed fixture file. All commands below were run with v7 as
+the working directory unless a different cd is shown.
+
+The canonical manifest is <REPO>/repair/v7-tests.json: 45 examples
+(prog01..prog45), 49 hidden cases and 3 perf workloads. Example .expected
+files are the UTF-8 encoding of the manifest "expected" string, byte for byte.
+
+
+1. Canonical data consistency
+-----------------------------
+Command:
+  <PY> _final_check.py            (throwaway script, removed after use)
+
+Result:
+  examples per folder: 45 45 45        (task, _golden, _grader/pristine)
+  hidden names: 49                     (exact manifest order)
+  visible TEST names: 45               (exact manifest order)
+  issues: 0
+The script also compared all 3 x 45 .expected files byte-for-byte against the
+manifest. The perf driver contains one perf() definition and three calls.
+Grading artifacts were removed: _final_check.py, _audit_faults.py and
+_build_examples.py are gone; no score.json or __pycache__ remains under v7.
+
+
+2. Golden vs visible suite (45/45 PASS, 3 perf workloads PASS)
+--------------------------------------------------------------
+Command:
+  & <NODE> _golden\tests\test_visible.js
+
+Result: 45 TEST lines, 0 FAIL; 9 PERF lines, all PASS.
+Exact PERF lines from this run:
+  PERF perf_print 16.990 PASS
+  PERF perf_print 15.887 PASS
+  PERF perf_print 16.551 PASS
+  PERF perf_disasm 1.757 PASS
+  PERF perf_disasm 1.030 PASS
+  PERF perf_disasm 1.008 PASS
+  PERF perf_snapshot 3.347 PASS
+  PERF perf_snapshot 1.486 PASS
+  PERF perf_snapshot 1.985 PASS
+Medians (3 runs each): perf_print 16.551 ms (limit 250),
+perf_disasm 1.008 ms (limit 200), perf_snapshot 1.985 ms (limit 250).
+
+The 13 new drivers prog33..prog45 are present in both _golden/examples and
+task/examples and pass on golden, including the API/raw-bytecode cases:
+prog36/45 serial roundtrip, prog37 disassembly, prog38 snapshot of fibers,
+prog39..prog42 snapshot error codes and prog43/44 raw bytecode.
+
+
+3. Golden vs hidden suite (49/49 PASS, 3 perf workloads PASS)
+-------------------------------------------------------------
+Commands:
+  $t = <TEMP>\golden_hidden
+  Copy-Item -Recurse -Force _golden\src $t\src
+  Copy-Item -Force _grader\hidden_tests\test_hidden.js $t\tests\test_hidden.js
+  & <NODE> $t\tests\test_hidden.js
+
+Result: 49 TEST lines, 0 FAIL; 9 PERF lines, all PASS.
+Exact PERF lines from this run:
+  PERF perf_print 17.940 PASS
+  PERF perf_print 15.242 PASS
+  PERF perf_print 13.859 PASS
+  PERF perf_disasm 1.724 PASS
+  PERF perf_disasm 1.001 PASS
+  PERF perf_disasm 0.989 PASS
+  PERF perf_snapshot 2.838 PASS
+  PERF perf_snapshot 3.218 PASS
+  PERF perf_snapshot 1.482 PASS
+Medians (3 runs each): perf_print 13.859 ms, perf_disasm 0.989 ms,
+perf_snapshot 1.482 ms. All 49 canonical hidden names are present; the
+hidden suite was not modified.
+
+
+4. Pristine (task) visible and hidden counts
+--------------------------------------------
+Commands:
+  & <NODE> task\tests\test_visible.js
+  (hidden: task\src copied to <TEMP>\pristine_hidden2\src with
+   _grader\hidden_tests\test_hidden.js in its tests\ directory)
+
+Visible: 45 TEST lines, 14 PASS / 31 FAIL, exit status 1.
+Failing (31): prog02_strings, prog03_values, prog05_arrays, prog06_if,
+prog08_compare_ge, prog09_compare_ne, prog10_escape_nul, prog11_escape_tab,
+prog13_unary_chain, prog14_nested_index, prog15_truthy, prog19_len_unicode,
+prog20_negative_index, prog21_push_sequence, prog24_array3, prog25_null_eq,
+prog26_distinct_basic, prog27_distinct_types, prog28_fiber_basic,
+prog29_fiber_yield, prog30_fiber_join_halted, prog31_snapshot_roundtrip,
+prog33_array_alias, prog34_distinct_nested, prog36_serial_roundtrip,
+prog37_disasm_distinct, prog38_snapshot_fibers, prog42_snapshot_duplicate,
+prog43_load_uninit, prog44_stack_ops, prog45_serial_fibers.
+Hidden baseline: 49 TEST lines, 14 PASS / 35 FAIL. Passing (14):
+h_escape_backslash, h_escape_quote, h_lt_and_gt, h_cmp_chain, h_str_cmp,
+h_str_cmp_unicode, h_add_vars, h_print_repeat, h_empty_then, h_nested_while,
+h_snapshot_badmagic, h_snapshot_badversion, h_snapshot_truncated,
+h_snapshot_badchecksum.
+
+
+5. Planted-fault audit
+----------------------
+Command: <PY> _audit_faults.py  (throwaway script, removed after use)
+Method: each of the 42 line-level task-vs-golden source differences was
+applied alone to an otherwise-golden src, then both suites were run.
+
+Result: 34 differences are caught by the visible suite, 32 of those also by
+hidden. Eight looked invisible in isolation:
+  - runtime.js missing typeof guard in compare()  -> genuinely invisible
+  - vm.js EQ using a === b                      -> genuinely invisible
+  - serialize.js unused OP import               -> no behavioural difference
+  - five differences only invisible because a companion fault masks them
+    (serialize MAGIC vs deserialize literal, BY_NAME source, and the snapshot
+    checksum prime / decode hash / decode offset trio). All are observable in
+    the real task source: prog36/45 and h_distinct_roundtrip fail on the
+    serializer pair; prog31/38/42 and h_snapshot_* fail on the checksum pair.
+
+The two genuine ones were eliminated from task/src (and therefore from the
+refreshed pristine) by restoring the golden lines:
+  runtime.js: typeof a !== typeof b || (typeof a !== 'number' && ...)
+  vm.js:      case OP.EQ: push(rt.valuesEqual(a, b))
+Pristine counts are unchanged by this (visible 14/31, hidden 14/35).
+
+Targeted single-fault probes on golden, one example driver each:
+  opcodes.js OP_NAMES[30] = 'DSTNCT' only:
+      prog37_disasm_distinct prints "MISSING" (expected "DISTINCT") -> FAIL
+  runtime.js Set-based isDistinct only:
+      prog34_distinct_nested prints "true\ntrue\n" (expected "false\ntrue\n") -> FAIL
+  snapshot.js DUPLICATE_FIBER check removed only:
+      prog42_snapshot_duplicate prints "" (expected "DUPLICATE_FIBER\n") -> FAIL
+Unmodified golden prints DISTINCT / false,true / DUPLICATE_FIBER for these
+three. Every remaining planted fault is observable in the visible or hidden
+suite.
+
+
+6. Scorer runs
+--------------
+Commands:
+  $env:HARNESS_NODE = '<NODE>'
+  <PY> score_v7.py --fixture . --solution _golden --lang js --out <TEMP>\score_golden.json
+  <PY> score_v7.py --fixture . --solution task --lang js --out <TEMP>\score_task.json
+
+Golden report (valid JSON, parsed with ConvertFrom-Json):
+  compile: baseline=true baseline_hidden=true visible=true hidden=true
+  correctness: visible 45 passed / 0 failed; hidden 49 passed / 0 failed;
+               total_passed=94 total_failed=0 score_zero=false
+  performance: passed=6 failed=0; each block run_count=3, all_pass=true
+    visible: perf_print [17.266,17.328,15.138] median 17.27 ms
+             perf_disasm [3.3,1.232,1.137] median 1.23 ms
+             perf_snapshot [3.414,1.525,1.499] median 1.52 ms
+    hidden:  perf_print [19.158,14.972,14.221] median 14.97 ms
+             perf_disasm [1.742,1.079,2.345] median 1.74 ms
+             perf_snapshot [2.77,1.62,1.412] median 1.62 ms
+  baseline_visible_passed=14 baseline_hidden_passed=14
+  hidden_regressions=[] regressions=[]
+  tests_modified=[] tests_added=[] tests_removed=[] files_removed=[]
+  public_api_intact=true wall_clock_ms=5406.0
+  visible_output_tail and hidden_output_tail present.
+
+Report field list (golden and task identical):
+  fixture, solution, lang,
+  compile{baseline, baseline_hidden, visible, hidden},
+  correctness{visible{passed, failed, failed_names},
+              hidden{passed, failed, failed_names},
+              total_passed, total_failed, score_zero},
+  performance{visible{<name>{runs_ms, median_ms, all_pass, run_count}},
+              hidden{<name>{runs_ms, median_ms, all_pass, run_count}},
+              passed, failed},
+  baseline_visible_passed, baseline_hidden_passed, hidden_regressions,
+  regressions, tests_modified, tests_removed, tests_added, files_removed,
+  public_api_intact, wall_clock_ms, visible_output_tail, hidden_output_tail.
+
+Pristine report: compile all true; visible 14 passed / 31 failed;
+hidden 14 passed / 35 failed; score_zero=true; baseline_visible_passed=14;
+baseline_hidden_passed=14; regressions=[]; performance passed=4 failed=2;
+public_api_intact=false; all other fields present.
+
+Purely perf failures never set score_zero: the pristine report fails two perf
+blocks yet its score_zero comes from correctness/API failure, and the golden
+report passes all six perf blocks with score_zero=false. The scorer's
+score_zero expression contains no performance term.
+
+
+7. Syntax-error / load-failure probe
+------------------------------------
+Commands:
+  $bad = <TEMP>\probe_syntax
+  Copy-Item -Recurse -Force _golden $bad
+  Add-Content "$bad\src\vm.js" "`nconst = ;`n"
+  <PY> score_v7.py --fixture . --solution $bad --lang js --out <TEMP>\score_syntax.json
+
+Result:
+  compile: baseline=true baseline_hidden=true visible=false hidden=false
+  visible 0 passed / 0 failed; hidden 0 passed / 0 failed
+  score_zero=true; visible_output_tail contains "SyntaxError"
+A zero-test run is no longer a success. A non-zero exit that still emits TEST
+lines (the ordinary failing suite) remains a normal run, so baseline counts
+stay meaningful.
+
+
+8. Hidden-only regression probe
+-------------------------------
+Commands:
+  $bad = <TEMP>\probe_hidden_reg
+  Copy-Item -Recurse -Force _golden $bad
+  replace in $bad\src\runtime.js: "case '>': return a > b;"
+                              -> "case '>': return true;"
+  <PY> score_v7.py --fixture . --solution $bad --lang js --out <TEMP>\score_hidden_reg.json
+
+Result:
+  compile: baseline=true baseline_hidden=true visible=true hidden=true
+  visible 45 passed / 0 failed; hidden 48 passed / 1 failed (h_lt_and_gt)
+  baseline_hidden_passed=14
+  hidden_regressions=[h_lt_and_gt]  regressions=[h_lt_and_gt]
+  score_zero=true
+h_lt_and_gt passes on pristine, so it is correctly classified as a hidden
+baseline regression rather than a pre-existing failure.
+
+
+9. Byte-identity and cleanup
+----------------------------
+Commands:
+  Copy-Item -Recurse -Force task _grader\pristine   (after removing old copy)
+  SHA-256 comparison of every relative file in task/ and _grader/pristine/
+  Copy-Item -Force score_v7.py _grader\score_v7.py
+  SHA-256 comparison of the two scorer files
+
+Result:
+  task/ 102 files, _grader/pristine/ 102 files, 0 differing bytes/paths.
+  score_v7.py and _grader/score_v7.py SHA-256:
+    4463A16EA08B3BBA692E33CAB7A2AD41B66FCBC0CE2435A32867B6E1477C4BAA
+  Both scorer copies are byte-identical. No process kills, config, model,
+  engine or git changes were used during validation.

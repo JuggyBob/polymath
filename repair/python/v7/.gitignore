@@ -1,0 +1,7 @@
+run-*/
+*-score.json
+*-hermes-output.txt
+*-hermes-stderr.txt
+*-timing.txt
+__pycache__/
+*.pyc

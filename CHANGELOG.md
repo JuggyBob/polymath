@@ -7,6 +7,11 @@ not yet use semantic versioning.
 ## [Unreleased]
 
 ### Added
+- `repair/v7/`: a deliberately hard MiniVM repair fixture in Python, C++,
+  JavaScript and Rust, generated from one canonical manifest
+  (`repair/v7-tests.json`). It adds masked cascading faults, deterministic
+  fibers and a checksummed snapshot format, with 45 visible examples, 49 hidden
+  tests and three performance gates per language. See `docs/V7-DESIGN.md`.
 - Initial public staging of the harness: QA suites, repair fixtures in Python,
   C++, JavaScript and Rust, BrowseComp-style research sets and historical
   results.

@@ -1,0 +1,151 @@
+C++ v7 fixture — measured verification
+=======================================
+
+All paths below use <REPO> for the repository checkout. Commands were run from
+<REPO>\repair\cpp\v7. No absolute paths or secrets are stored in the fixture.
+
+Environment
+-----------
+g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 16.2.0
+Python 3.11.9
+MSVC 2022 BuildTools cl.exe via <ProgramFiles(x86)>\...\vcvars64.bat
+
+Canonical manifest
+------------------
+Re-read <REPO>\repair\v7-tests.json in full after the update:
+  45 examples prog01..prog45 (13 new: prog33_array_alias..prog45_serial_fibers)
+  49 hidden tests (names unchanged by the audit coverage work)
+  3 perf workloads, 3 runs each
+Every new example has a host-language .cpp driver and a .expected file whose
+bytes are written directly from the manifest `expected` string.
+
+Golden — g++ -std=c++17 -O2
+---------------------------
+  g++ -std=c++17 -O2 -I_golden/include _golden/src/*.cpp \
+      _golden/tests/test_visible.cpp -o _golden_visible.exe
+  result: 45 TEST lines, 45 PASS, 0 FAIL (plus 9 PERF lines, all PASS)
+  PERF median perf_print    7.94 ms
+  PERF median perf_disasm   1.32 ms
+  PERF median perf_snapshot 0.21 ms
+
+  g++ -std=c++17 -O2 -I_golden/include _golden/src/*.cpp \
+      _grader/hidden_tests/test_hidden.cpp -o _golden_hidden.exe
+  result: 49 TEST lines, 49 PASS, 0 FAIL (plus 9 PERF lines, all PASS)
+  PERF median perf_print    11.14 ms
+  PERF median perf_disasm   1.34 ms
+  PERF median perf_snapshot 0.20 ms
+
+New example drivers — raw byte comparison
+-----------------------------------------
+Compiled each of the 13 new golden drivers with
+  g++ -std=c++17 -O2 -I_golden/include _golden/src/*.cpp \
+      _golden/examples/<name>.cpp -o <name>.exe
+and compared stdout bytes with <name>.expected.
+result: 13 checked, 0 mismatches.
+For api/code entries the drivers perform the equivalent host API / raw-bytecode
+call (compile_source, serialize/deserialize, disassemble, snapshot/restore,
+MiniVMError codes, GET/DUP/SWAP bytecode sequences).
+prog33_array_alias prints "[1, 2]\n[1, 2]\n", so the deep-copy Value fault is
+now exposed in the visible suite (it was previously only in h_array_alias).
+
+Pristine (task/) — g++ -std=c++17 -O2
+-------------------------------------
+  g++ -std=c++17 -O2 -Itask/include task/src/*.cpp \
+      task/tests/test_visible.cpp -o _task_visible.exe
+  result: 45 TEST lines, 13 PASS, 32 FAIL
+  g++ -std=c++17 -O2 -Itask/include task/src/*.cpp \
+      _grader/hidden_tests/test_hidden.cpp -o _task_hidden.exe
+  result: 49 TEST lines, 7 PASS, 42 FAIL
+The 32 visible failures satisfy the "at least one visible FAIL" rule. The
+corrected README records these measured counts: 32 of 45 fail, 13 pass.
+
+Scorer — python score_v7.py (MSVC cl.exe /O2 via vcvars64.bat)
+--------------------------------------------------------------
+  python score_v7.py --fixture . --solution _golden --lang cpp \
+      --out _golden_score.json
+  compile: baseline=true baseline_hidden=true visible=true hidden=true
+  correctness: visible 45/45, hidden 49/49, total 94 passed, score_zero=false
+  baseline_visible_passed=13, baseline_hidden_passed=7, regressions=[]
+  perf visible: print [9.2306,9.1910,9.2004] median 9.20 PASS;
+                disasm [1.1568,1.1971,1.1536] median 1.16 PASS;
+                snapshot [0.3052,0.3472,0.3455] median 0.35 PASS
+  perf hidden:  print [9.3108,9.1479,9.6992] median 9.31 PASS;
+                disasm [1.1487,1.1970,1.1606] median 1.16 PASS;
+                snapshot [0.3303,0.3439,0.3345] median 0.33 PASS
+  files_removed=[], public_api_intact=true, tests_modified/added/removed=[]
+  wall_clock_seconds=21.91
+
+  python score_v7.py --fixture . --solution task --lang cpp \
+      --out _task_score.json
+  compile: all true; correctness: visible 13/45, hidden 7/49;
+  total 20 passed, 74 failed, score_zero=false (no test tampering).
+  All six perf gates FAIL: visible medians 0.01 (cache-hit shortcut),
+  76.42, 149.44 ms; hidden medians 0.01, 110.24, 126.37 ms.
+  Perf failures did NOT set score_zero. baseline_visible_passed=13,
+  baseline_hidden_passed=7, regressions=[], wall_clock_seconds=23.98.
+
+  Hidden-only regression probe: _work/probe_solution is golden with restore()
+  changed so the 'NOPE' magic is not rejected. Visible stays 45/45; hidden is
+  48/49 with only h_snapshot_badmagic failing.
+  python score_v7.py --fixture . --solution _work/probe_solution --lang cpp \
+      --out _work/probe_score.json
+  correctness: visible 45/45, hidden 48/49, score_zero=true
+  regressions=['h_snapshot_badmagic'], baseline_hidden_passed=7
+  all six perf gates PASS, wall_clock_seconds=21.66
+  This confirms a hidden-only correctness regression sets score_zero even when
+  every visible test passes and all perf workloads pass.
+
+Scorer JSON fields (all present in each report)
+-----------------------------------------------
+  fixture, solution, lang,
+  compile.{baseline,baseline_hidden,visible,hidden},
+  correctness.{visible.{passed,failed,failed_names},
+               hidden.{passed,failed,failed_names},
+               total_passed,total_failed,score_zero},
+  performance.{visible,hidden,passed,failed},
+  performance.<suite>.<workload>.{runs_ms,median_ms,run_count,all_pass},
+  baseline_visible_passed, baseline_hidden_passed,
+  baseline_hidden_passed_names, regressions,
+  tests_modified, tests_removed, tests_added, files_removed,
+  public_api_intact, wall_clock_seconds,
+  visible_output_tail, hidden_output_tail
+
+Pristine
+--------
+_grader/pristine is a byte-identical copy of task/ (112 files, 0 SHA-256
+differences), refreshed after the task build.cpp change.
+task/README.md and _grader/pristine/README.md are byte-identical; both compile
+with MSVC /O2, matching the scorer. Root README.md counts updated to 45 drivers
+and the measured 32 fail / 13 pass pristine split.
+score_v7.py and _grader/score_v7.py are byte-identical.
+task/tests/test_visible.cpp and _golden/tests/test_visible.cpp are byte-identical
+(45 TEST lines in manifest order + 3 perf workloads x 3 runs).
+
+Planted fault audit (new)
+-------------------------
+Single-fault injection audit: each planted fault was injected alone into a copy
+of the golden sources and compiled with a combined harness running all 45
+visible + 49 hidden tests + 3 perf workloads (94 TEST + 6 PERF lines).
+  43 documented textual faults form 41 logical faults (two coupled pairs:
+  the Value copy-ctor declaration+definition and the snapshot static-leak
+  declarations+uses).
+  Before coverage work: 28 observable, 13 invisible.
+  After coverage work: 41/41 observable, 0 permanently invisible.
+Coverage added in the hidden suite without changing the 49 test names:
+  '#' inside a string; Ge/Ne lexer token kinds; compile_source global indices;
+  from_source name accumulation; run() cache hit; bool tag in a snapshot;
+  >32-bit int in a snapshot; cross-restore stale globals; hex_encode leading
+  nibble; FNV-1a operation order; GET/SET index vs name lookup; JOIN on a
+  halted target. The task build.cpp run-cache fault now appends "\n" on a
+  cache hit so the repeated-run check detects it.
+Chains terminate: GE (lexer token -> parser node -> compiler opcode), fibers
+(SPAWN -> YIELD rotation -> JOIN halted target), snapshot (checksum range ->
+wide ints/bool tags -> static leak), arrays (APUSH copy -> deep-copy alias ->
+DISTINCT identity). Each chain reaches the golden with no cycles; every fault
+has at least one visible or hidden test that fails in isolation.
+
+Scorer protocol check
+---------------------
+Each correctness test emits exactly one "TEST <name> PASS|FAIL" line; each
+performance workload emits exactly three "PERF <name> <ms> PASS|FAIL" lines.
+A PERF FAIL does not set score_zero (verified with the task score.json).

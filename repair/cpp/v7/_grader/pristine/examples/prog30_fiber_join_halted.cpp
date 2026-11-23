@@ -1,0 +1,16 @@
+// Canonical example: prog30_fiber_join_halted
+#include <iostream>
+#ifdef _WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
+
+#include "vm.h"
+
+int main() {
+#ifdef _WIN32
+    _setmode(_fileno(stdout), _O_BINARY);
+#endif
+    std::cout << minivm::run(R"V7SRC(fiber w { print 7; } let f = spawn w; yield; join f; print 8;)V7SRC");
+    return 0;
+}

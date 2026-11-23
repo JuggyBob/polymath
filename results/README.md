@@ -9,6 +9,13 @@ as a ranking of models.
 - Closed-book results for the easy and hard sets.
 - Open-ended baselines in `qa/open-ended/baselines/`.
 - Repair-fixture scores in each `repair/<language>/v*/` folder.
+- The v7 campaign, design, audit record and attempted Inkling comparison in
+  [`docs/V7-RESULTS.md`](../docs/V7-RESULTS.md),
+  [`docs/V7-REPORT.md`](../docs/V7-REPORT.md),
+  [`docs/V7-AUDIT.md`](../docs/V7-AUDIT.md) and
+  [`docs/V6-INKLING-COMPARISON.md`](../docs/V6-INKLING-COMPARISON.md). Run
+  artifacts and per-run score JSONs are deliberately ignored; scores are
+  reported in the path-free documents under `docs/`.
 - BrowseComp results in `qa/browsecomp/*/`.
 - Older LFM runs under `qa/closed-book/lfm25-baseline/`, and Goose-era repair
   runs under `repair/python/goose_qwen/` and `repair/python/goose_lfm/`.

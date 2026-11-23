@@ -1,0 +1,8 @@
+run-*/
+*-score.json
+*-hermes-output.txt
+*-hermes-stderr.txt
+*-timing.txt
+target/
+*.exe
+*.pdb

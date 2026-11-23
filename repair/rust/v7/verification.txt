@@ -1,0 +1,157 @@
+Rust v7 fixture — verification record
+=====================================
+(Updated for the 45-example canonical manifest; replaces the 32-example record.)
+
+Toolchain (found, not assumed)
+------------------------------
+rustc 1.100.0 (0ef1bc386 2026-11-09)
+<USERPROFILE>\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\rustc.exe
+rustc is NOT on PATH in this session. HARNESS_RUSTC was set for every scorer run.
+Build flags: rustc --edition 2021 -O
+
+Canonical manifest
+------------------
+<REPO>\repair\v7-tests.json was re-read in full:
+45 examples (prog01_arith .. prog45_serial_fibers), 49 hidden tests, 3 perf
+workloads. All 13 new examples were generated from its `expected` strings.
+
+Fixes applied
+-------------
+1. Added prog33_array_alias .. prog45_serial_fibers drivers and .expected files
+   to task/examples/ and _golden/examples/. `source` examples use
+   `#[path = "../src/lib.rs"] mod minivm;` and call minivm::run; `api` and
+   `code` examples call the equivalent host API / raw bytecode entry points
+   described by meta.host_api (compile_source, serialize/deserialize,
+   disassemble, snapshot/restore, vm::execute).
+2. Regenerated task/tests/test_visible.rs and _golden/tests/test_visible.rs:
+   exactly 45 TEST lines in canonical manifest order, plus the same 3 perf
+   tests (perf_print, perf_disasm, perf_snapshot), 3 runs each. The hidden
+   suite was left unchanged at exactly 49 names.
+3. score_v7.py now emits public_api_intact, files_removed and a timing object
+   (total_elapsed_ms, baseline_visible_ms, visible_ms, hidden_ms,
+   baseline_hidden_ms). API loss and functional-file loss now set score_zero.
+   A pristine hidden baseline is compiled and run; base_hidden_pass & hid_fail
+   is reported as hidden_only_regressions and included in regressions, and any
+   hidden correctness regression sets score_zero=true. Perf failures never do.
+   The final scorer was copied byte-identically to _grader/score_v7.py.
+4. Audited all 45 original planted diff hunks. Four were permanently invisible
+   (no visible/hidden correctness flip and no perf-gate flip): compiler.rs
+   slot_of linear scan (hunks 1-2), opcode.rs missing disassemble capacity
+   (hunk 15), snapshot.rs put_u32 buffer copying (hunk 26). They were corrected
+   in task/ to match the golden implementation. 41 hunks remain; each is
+   observable (39 via correctness, 2 via a perf gate). See "Fault audit".
+5. Refreshed _grader/pristine/ byte-identically from task/ and removed all
+   generated .exe/.pdb/target artifacts.
+
+Commands and results
+--------------------
+Set the compiler once (it is not on PATH):
+  $env:HARNESS_RUSTC='<USERPROFILE>\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\rustc.exe'
+
+Example drivers (each compiled with: rustc --edition 2021 -O <driver>.rs -o <driver>):
+  _golden: 45 / 45 drivers compile and match their .expected bytes exactly
+  task:     8 / 45 match, 37 / 45 mismatch (0 compile errors)
+  _grader/pristine: 45 / 45 .expected files byte-match the canonical manifest
+
+Visible suite (rustc --edition 2021 -O tests/test_visible.rs -o test_visible):
+  _golden: 45 TEST lines, 45 PASS, 0 FAIL; 9 PERF lines
+  task:    45 TEST lines,  8 PASS, 37 FAIL; 9 PERF lines
+  Names and order match the 45 manifest examples exactly in all three trees.
+
+Hidden suite (hidden test copied into tests/, compiled the same way):
+  _golden: 49 TEST lines, 49 PASS, 0 FAIL; 9 PERF lines
+  task:    49 TEST lines, 11 PASS, 38 FAIL; 9 PERF lines
+  49 unique hidden names; unchanged from the canonical manifest.
+
+Scorer (golden as solution):
+  python score_v7.py --fixture <v7> --solution <v7>\_golden --lang rust --out score_golden.json
+    visible 45/45, hidden 49/49, score_zero = false
+    public_api_intact = true, files_removed = []
+    tests_modified/removed/added = none, regressions = none
+    performance passed 6 / failed 0
+    Golden perf medians, 3 runs each (hidden suite):
+      perf_print    6.77 ms   (limit 60)
+      perf_disasm   4.34 ms   (limit 50)
+      perf_snapshot 0.37 ms   (limit 60)
+
+Scorer (task as solution, i.e. pristine FAIL count):
+  python score_v7.py --fixture <v7> --solution <v7>\task --lang rust --out score_task.json
+    visible 8/45 (37 FAIL), hidden 11/49 (38 FAIL), score_zero = false
+    regressions = none; baseline_visible_passed = 8, baseline_hidden_passed = 11
+    performance passed 5 / failed 1
+      perf_print 0.00 ms PASS (loop truncated by earlier faults),
+      perf_disasm 228.64 ms FAIL (50 ms gate),
+      perf_snapshot 0.18 ms PASS
+    This is a purely perf failure: score_zero stays false.
+
+Hidden-regression probe:
+  A probe solution copied task/ and added one guard in src/lib.rs::run() that
+  changes the output only for the source string used by h_nested_index (a test
+  that passes on pristine). No test, API or file was changed.
+  python score_v7.py --fixture <v7> --solution <probe> --lang rust --out score_probe.json
+    hidden 10/49 (baseline 11/49), regressions = ['h_nested_index'],
+    hidden_only_regressions = ['h_nested_index'], visible_regressions = [],
+    score_zero = true. A hidden-only correctness regression is therefore caught.
+
+Additional loss probes:
+  Demoting `pub mod token;` to `mod token;`:
+    public_api_intact = false, score_zero = true.
+  Deleting examples/prog01_arith.rs:
+    files_removed = ['examples/prog01_arith.rs'], score_zero = true.
+
+Scorer JSON field list (top level)
+----------------------------------
+fixture, solution, lang, compile, correctness, performance, public_api_intact,
+files_removed, timing, baseline_visible_passed, baseline_hidden_passed,
+regressions, visible_regressions, hidden_only_regressions, tests_modified,
+tests_removed, tests_added, visible_output_tail, hidden_output_tail.
+Nested: correctness.score_zero; timing.{total_elapsed_ms, baseline_visible_ms,
+visible_ms, hidden_ms, baseline_hidden_ms}; performance.{passed, failed} and
+per-test {runs_ms, median_ms, all_pass, run_count}.
+
+Fault audit
+-----------
+Method: two counterfactual experiments per hunk. INJECT = golden source with
+only that hunk's faulty text, run against the full 45+49 suite; REVERT = task
+source with only that hunk restored. A hunk is observable if an isolated inject
+flips at least one TEST line, or (for perf-only hunks) flips a perf gate.
+The audit used a temporary merged driver running both suites with perf disabled
+for correctness experiments, and the unmodified hidden driver for perf ones.
+
+Result: 45 original hunks audited. 4 hunks (3 logical edits) were permanently
+invisible and were corrected in task/:
+  - compiler.rs slot_of: HashMap::get replaced by a linear scan (hunks 1-2).
+    No test with enough slots exists; compile time is unchanged on all tests.
+  - opcode.rs disassemble_block: String::with_capacity removed (hunk 15).
+    perf_disasm median 3.8 ms without it, 3.9 ms with it; gate is 50 ms.
+  - snapshot.rs put_u32: extend replaced by whole-buffer copy (hunk 26).
+    perf_snapshot median 1.47 ms vs 0.19 ms; gate is 60 ms.
+All 41 remaining hunks are observable: 39 flip at least one correctness test
+when injected into golden; 2 are perf-only and flip a gate:
+  - opcode.rs disassemble_block format! accumulation (hunk 16):
+    perf_disasm 201.57 ms FAIL when injected, 3.84 ms PASS when reverted.
+  - vm.rs Print quadratic output accumulation (hunk 45):
+    perf_print 578.44 ms FAIL when injected, PASS when reverted.
+Masked hunks are allowed and terminate: e.g. the compiler Ge operand swap is
+masked by the lexer/parser >= faults; the raw-bytecode SPAWN/JOIN/YIELD
+deserialization gap is masked by the DISTINCT mnemonic fault; array identity
+equality is masked by "Distinct always true"; the snapshot ready-queue loss is
+masked by the host run() and snapshot magic faults; the duplicate-fiber check
+is masked by the checksum-seed fault. Each becomes observable once its
+prerequisite fixes are applied, as the isolated-injection results confirm.
+No permanently invisible fault remains.
+
+File identity and cleanliness
+-----------------------------
+task/ 103 files, _grader/pristine/ 103 files: all SHA-256 digests identical.
+score_v7.py and _grader/score_v7.py: byte-identical (SHA-256).
+No .exe, .pdb, .obj, .ilk or target/ artifacts remain in the fixture.
+
+Caveats
+-------
+- New failures after a fix are expected; several faults are masked by earlier
+  ones and are only revealed by prerequisite fixes.
+- The visible perf workloads are smaller than the hidden ones (2000 prints /
+  200 globals vs 60000 / 2000); the gates are the same.
+- No process kills, config/model/engine/git changes were used during
+  verification. All measurements came from local rustc runs recorded above.
